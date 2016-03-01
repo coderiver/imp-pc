@@ -1,9 +1,39 @@
 ---
-title: Index page
+title: Pricing Page
 ---
 {% extends "layouts/_layout.html" %}
 
 {% block content %}
-{% include "partials/_header.html" %}
-<h1>Index page</h1>
+
+  <!-- BEGIN header -->
+  <header class="header l">
+    <img class="header__pic" src="img/illustartion.svg" alt="illustartion">
+    <h1 class="header__title title">Price Configurator</h1>
+    <div class="header__aside-btn drop">
+      <button class="btn-round" data-trigger="drop">Already have an app?</button>
+      <div class="tooltip tooltip_lg">
+        If you already have an app and wish to upgrade to our solution
+        as most of our clients did, as a welcome gift, we will create stunning
+        custom design for your app at no cost ($250/-$500  value).
+        <a href="#"><strong>Please contact us</strong></a> before configuring this page.
+      </div>
+    </div>
+  </header>
+  <!-- END header -->
+
+  <div class="type-select drop">
+    <button class="select-trigger" data-trigger="drop">Faith-Based</button>
+  </div>
+
+  <div class="tab-group l">
+    <button class="tab-group__btn is-active">Church</button>
+    <button class="tab-group__btn">Ministry</button>
+  </div>
+
+  <div class="tab-content-group">
+    <div class="tab-content">
+      {% include "partials/_attendance.html" %}
+    </div>
+  </div>
+
 {% endblock %}

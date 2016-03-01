@@ -8,13 +8,9 @@ var frontMatter    = require('gulp-front-matter');
 var config         = require('../config');
 
 function renderHtml(onlyChanged) {
-    nunjucksRender.nunjucks.configure([
-        config.src.templates
-    ], {
-        watch: false,
-        trimBlocks: true,
-        lstripBlocks: false
-    });
+    //nunjucksRender.nunjucks.configure([
+    //    config.src.templates
+    //], );
 
     return gulp
         .src([config.src.templates + '/**/[^_]*.html'])
@@ -24,7 +20,15 @@ function renderHtml(onlyChanged) {
         .pipe(gulpif(onlyChanged, changed(config.dest.html)))
         .pipe(frontMatter({ property: 'data' }))
         .pipe(nunjucksRender({
-            PRODUCTION: config.production
+            path: config.src.templates,
+            data: {
+                PRODUCTION: config.production
+            },
+            envOptions: {
+                watch: false,
+                trimBlocks: true,
+                lstripBlocks: true
+            }
         }))
         .pipe(prettify({
             indent_size: 2,

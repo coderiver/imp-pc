@@ -1,0 +1,130 @@
+.title
+  +f(sb, 24, 26)
+
+.select-trigger
+  display: block
+  position: relative
+  height: 40px
+  padding: 0 12px
+  width: 100%
+  border: 1px solid $color-border
+  border-radius: 3px
+  background: none
+  +f(b, 15)
+  line-height: 40px
+  color: $color-blue
+  text-align: left
+  user-select: none
+  +trans
+  &:after
+    @extend %icon
+    content: $icon-chevron-down
+    position: absolute
+    top: 50%
+    right: 12px
+    margin-top: -0.5em
+    color: $color-border
+    font-size: 6px
+  .is-open &
+    border-color: $color-blue
+    box-shadow: 0px 0px 4px 0px rgba(73, 143, 225, 0.50)
+    &:after
+      color: $color-blue
+
+
+.btn-round
+  position: relative
+  height: 30px
+  border: 1px solid
+  +f(t, 12)
+  padding: 0 15px
+  border-radius: 15px
+  box-sizing: border-box
+  color: $color-text-main
+  background: none
+  opacity: 0.5
+  user-select: none
+  +trans
+  &:hover
+    opacity: 1
+  .is-open &
+    opacity: 1
+    background: $color-blue
+    border-color: $color-blue
+    color: white
+
+.tooltip
+  position: absolute
+  z-index: 0
+  bottom: 100%
+  right: 0
+  margin-bottom: 20px
+  visibility: hidden
+  opacity: 0
+  background: white
+  border-radius: 3px 3px 0 3px
+  border: 1px solid
+  box-sizing: border-box
+  padding: 15px 25px
+  text-align: left
+  width: 250px
+  transform: scale(0.8)
+  transform-origin: right bottom
+  +trans
+  &:after
+    content: ""
+    position: absolute
+    z-index: -1
+    top: 100%
+    right: -1px
+    width: 34px
+    height: 20px
+    margin-top: -10px
+    border-style: solid
+    border-width: 0 1px 1px 0
+    border-radius: 0 0 5px 0
+    background: white
+    transform: skewY(30deg)
+    pointer-events: none
+  &_lg
+    width: 360px
+  .is-open &
+    visibility: visible
+    opacity: 1
+    transform: scale(1)
+
+.tab-group
+  margin-top: 40px
+  margin-bottom: 10px
+  font-size: 0
+  display: flex
+  flex-direction: row
+  flex-wrap: nowrap
+  align-content: center
+  text-align: center
+  justify-content: center
+
+.tab-group__btn
+  display: inline-block
+  vertical-align: top
+  height: 46px
+  box-sizing: border-box
+  width: 100%
+  max-width: 280px
+  +f(b, 14)
+  text-transform: uppercase
+  color: rgba($color-text-main, 0.5)
+  background: none
+  border: 1px solid rgba(white, 0)
+  border-bottom-color: $color-border
+  +trans
+  & + &
+    margin-left: -1px
+  &:hover
+    color: $color-text-main
+  &.is-active
+    border-color: $color-border
+    border-bottom-color: rgba(white, 0)
+    color: $color-blue
+    cursor: default
+

@@ -1,5 +1,22 @@
 body
   background: #FFF
-  font-size: 16px
-  line-height: 1.4
+  color: $color-text-main
+  +f(t, 15, 21)
+  +smooth-font
+  min-width: $layout-width + 40px
 
+b, strong
+  +f(b)
+
+a
+  color: $color-blue
+  text-decoration: underline
+
+.l
+  max-width: $layout-width + px
+  margin: auto
+  padding: 0 20px
+  box-sizing: content-box
+
+.drop
+  position: relative
