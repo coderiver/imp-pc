@@ -9,11 +9,12 @@
   font-style: normal;
 }
 
-$icon-chevron-down: "\EA01";
-$icon-man: "\EA02";
-$icon-people-2: "\EA03";
-$icon-people-3: "\EA04";
-$icon-people-5: "\EA05";
+$icon-btn-ok: "\EA01";
+$icon-chevron-down: "\EA02";
+$icon-man: "\EA03";
+$icon-people-2: "\EA04";
+$icon-people-3: "\EA05";
+$icon-people-5: "\EA06";
 
 
 %icon {
@@ -32,6 +33,7 @@ $icon-people-5: "\EA05";
   display: inline-block;
 }
 
+.icon-btn-ok:before { content: $icon-btn-ok; }
 .icon-chevron-down:before { content: $icon-chevron-down; }
 .icon-man:before { content: $icon-man; }
 .icon-people-2:before { content: $icon-people-2; }

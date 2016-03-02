@@ -8,10 +8,6 @@ var frontMatter    = require('gulp-front-matter');
 var config         = require('../config');
 
 function renderHtml(onlyChanged) {
-    //nunjucksRender.nunjucks.configure([
-    //    config.src.templates
-    //], );
-
     return gulp
         .src([config.src.templates + '/**/[^_]*.html'])
         .pipe(plumber({

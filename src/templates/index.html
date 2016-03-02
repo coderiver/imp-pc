@@ -22,7 +22,10 @@ title: Pricing Page
   <!-- END header -->
 
   <div class="type-select drop">
-    <button class="select-trigger" data-trigger="drop">Faith-Based</button>
+    <button class="select-trigger" data-trigger="drop">
+      <span>Faith-Based</span>
+      {{ mixins.icon('chevron-down') }}
+    </button>
   </div>
 
   <div class="tab-group l">
@@ -34,6 +37,13 @@ title: Pricing Page
     <div class="tab-content">
       {% include "partials/_attendance.html" %}
     </div>
+  </div>
+
+  <div class="align-center">
+    <button class="btn-icon">
+      {{ mixins.icon('btn-ok') }}
+      <span>Confirm</span>
+    </button>
   </div>
 
 {% endblock %}

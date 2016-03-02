@@ -23,8 +23,8 @@
   margin: 30px auto 40px
 
 .attendance
-  padding: 37px 0 40px
-  background: $color-blue
+  padding: 37px 0 0
+  background: #529EF7
   color: white
   text-align: center
   font-size: 18px
@@ -34,12 +34,25 @@
   +f(b, 32, 34)
 
 .attendance__value
-  width: 304px
+  display: inline-block
+  vertical-align: top
+  min-width: 304px
+  padding: 0 20px
   height: 74px
-  margin: 40px auto 20px
+  margin: 40px auto 0
   box-sizing: border-box
   border-radius: 5px
   text-align: center
   border: 2px solid
   font-size: 59px
   line-height: 74px
+
+.attendance__footer
+  background: #4290EC
+  margin-top: 80px
+  padding: 10px 0 50px
+
+.attendance__slider
+  margin: 0 60px
+  position: relative
+  padding-bottom: 30px
