@@ -32,7 +32,13 @@
       <!-- END header -->
 
       <div class="type-select drop">
-        <button class="select-trigger" data-trigger="drop">Faith-Based</button>
+        <button class="select-trigger" data-trigger="drop">
+      <span>Faith-Based</span>
+        <svg class="icon icon-chevron-down">
+    <use xlink:href="img/sprite.svg#icon-chevron-down"></use>
+  </svg>
+
+    </button>
       </div>
 
       <div class="tab-group l">
@@ -50,20 +56,42 @@
                 Please input correct information as all important statistics & benchmarks will not be shown properly in your CMS.
               </p>
               <div class="attendance__value">100-150</div>
-              <div class="attendance__slider slider">
-                <div class="slider-track"></div>
-                <ul class="slider-points">
-                  <li class="slider-point">0-50</li>
-                  <li class="slider-point">50-100</li>
-                  <li class="slider-point">100-250</li>
-                  <li class="slider-point">250-500</li>
-                  <li class="slider-point">500-1,000</li>
-                  <li class="slider-point">1,000-3,000</li>
-                  <li class="slider-point">3,000-5,000</li>
-                  <li class="slider-point">5,000-10,000</li>
-                  <li class="slider-point">10,000-25,000</li>
-                  <li class="slider-point">25,000+</li>
-                </ul>
+            </div>
+            <div class="attendance__footer">
+              <div class="l">
+                <div class="attendance__slider">
+                  <div class="slider"></div>
+                  <ul class="slider-points">
+                    <li class="slider-point">0-50</li>
+                    <li class="slider-point">50-100</li>
+                    <li class="slider-point">100-250</li>
+                    <li class="slider-point">250-500</li>
+                    <li class="slider-point">500-1,000</li>
+                    <li class="slider-point">1,000-3,000</li>
+                    <li class="slider-point">3,000-5,000</li>
+                    <li class="slider-point">5,000-10,000</li>
+                    <li class="slider-point">10,000-25,000</li>
+                    <li class="slider-point">25,000+</li>
+                  </ul>
+                  <div class="slider-tooltip">
+                    <svg class="icon icon-man">
+    <use xlink:href="img/sprite.svg#icon-man"></use>
+  </svg>
+
+                    <svg class="icon icon-people-2">
+    <use xlink:href="img/sprite.svg#icon-people-2"></use>
+  </svg>
+
+                    <svg class="icon icon-people-3">
+    <use xlink:href="img/sprite.svg#icon-people-3"></use>
+  </svg>
+
+                    <svg class="icon icon-people-5">
+    <use xlink:href="img/sprite.svg#icon-people-5"></use>
+  </svg>
+
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -71,11 +99,20 @@
         </div>
       </div>
 
+      <div class="align-center">
+        <button class="btn-icon">
+        <svg class="icon icon-btn-ok">
+    <use xlink:href="img/sprite.svg#icon-btn-ok"></use>
+  </svg>
+
+      <span>Confirm</span>
+    </button>
+      </div>
+
     </div>
     <!-- END content -->
 
     <!-- BEGIN scripts -->
-
     <script type="text/javascript" src="lib/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="lib/nouislider/distribute/nouislider.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
