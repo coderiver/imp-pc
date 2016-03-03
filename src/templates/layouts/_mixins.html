@@ -1,5 +1,20 @@
 {% macro icon(name, classes) %}
-  <svg class="icon icon-{{ name }}{{ ' ' + classes if classes else '' }}">
+  <svg class="icon icon-{{ name }}{{ ' ' + classes if classes }}">
     <use xlink:href="img/sprite.svg#icon-{{ name }}"></use>
   </svg>
 {% endmacro %}
+
+{% macro radio(text, classes, attr) %}
+  <label class="radio{{ ' ' + classes if classes }}">
+    <input type="radio"{{ ' ' + attr if attr }}>
+    <span>{{ text | safe }}</span>
+  </label>
+{% endmacro %}
+
+{% macro checkbox(text, classes, attr) %}
+  <label class="check{{ ' ' + classes if classes }}">
+    <input type="checkbox"{{ ' ' + attr if attr }}>
+    <span>{{ text | safe }}</span>
+  </label>
+{% endmacro %}
+

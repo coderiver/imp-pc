@@ -1,11 +1,13 @@
 .title
   +f(sb, 24, 26)
+  &_sm
+    font-size: 17px
 
 .select-trigger
   display: block
   position: relative
   height: 40px
-  padding: 0 12px
+  padding: 0 30px 0 12px
   width: 100%
   border: 1px solid $color-border
   border-radius: 3px
@@ -16,15 +18,6 @@
   text-align: left
   user-select: none
   +trans
-  //&:after
-  //  @extend %icon
-  //  content: $icon-chevron-down
-  //  position: absolute
-  //  top: 50%
-  //  right: 12px
-  //  margin-top: -0.5em
-  //  color: $color-border
-  //  font-size: 6px
   .icon
     position: absolute
     top: 50%
@@ -32,12 +25,26 @@
     margin-top: -0.5em
     color: $color-border
     font-size: 6px
-  .is-open &
+  &_simple
+    height: 24px
+    line-height: 24px
+    border-color: rgba(white, 0)
+    padding: 0 20px 0 5px
+    min-width: 40px
+    .icon
+      right: 5px
+  .open &
     border-color: $color-blue
     box-shadow: 0px 0px 4px 0px rgba(73, 143, 225, 0.50)
     .icon
       color: $color-blue
 
+.type-select
+  width: 250px
+  margin: 30px auto 40px
+
+.amount-select
+  display: inline-block
 
 .btn-round
   position: relative
@@ -54,7 +61,7 @@
   +trans
   &:hover
     opacity: 1
-  .is-open &
+  .open &
     opacity: 1
     background: $color-blue
     border-color: $color-blue
@@ -95,7 +102,7 @@
     pointer-events: none
   &_lg
     width: 360px
-  .is-open &
+  .open &
     visibility: visible
     opacity: 1
     transform: scale(1)
@@ -153,3 +160,186 @@
     .icon
       +trans(fill)
       fill: $color-blue
+
+.hint
+  display: inline-block
+  vertical-align: middle
+  background: none
+  cursor: pointer
+  padding: 5px
+  .icon-hint
+    display: block
+    font-size: 12px
+    opacity: 0.5
+    color: #86919A
+    +trans(opacity)
+  &:hover
+    .icon-hint
+      opacity: 1
+
+.demo-btn
+  display: inline-block
+  background: none
+  font-size: 17px
+  color: inherit
+  +trans(color)
+  &:hover
+    color: $color-blue
+
+.footnote
+  padding-left: 0.6em
+  &:before
+    content: "*"
+    position: absolute
+    margin-left: -0.6em
+
+.radio,
+.check
+  display: inline-block
+  position: relative
+  padding: 4px 0 0 24px
+  min-width: 24px
+  min-height: 24px
+  box-sizing: border-box
+  user-select: none
+  line-height: 1.2
+  > input
+    position: absolute
+    opacity: 0
+    top: 6px
+    left: 6px
+    &:checked
+      ~ span:after
+        opacity: 1
+  > span
+    display: block
+    padding-left: 8px
+    &:before
+      content: ""
+      position: absolute
+      top: 0
+      left: 0
+      width: 24px
+      height: 24px
+      border-radius: 50%
+      border: 1px solid
+      box-sizing: border-box
+    &:after
+      content: ""
+      position: absolute
+      top: 6px
+      left: 6px
+      border-radius: 50%
+      width: 12px
+      height: 12px
+      background: $color-blue
+      opacity: 0
+      +trans
+  &_simple
+    > span
+      padding-left: 0
+
+.check
+  > span
+    &:before,
+    &:after
+      border-radius: 0
+
+.tile-group
+  margin: 20px 0
+  .tile
+    z-index: 1
+    margin: 0
+
+.tile
+  position: relative
+  background: white
+  box-shadow: 0px 0px 11px 0px rgba(black, 0.03)
+  margin: 20px 0
+  &_dark
+    background: $color-tile-dark
+    .check-group.l-cell,
+    .tile__head,
+    .tile__footer
+      border-color: $color-tile-dark-border
+  &_with-pic
+    margin-top: 87px
+    .tile__head
+      padding-left: 140px
+      position: relative
+      &:before
+        content: ""
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 140px
+        height: 140px
+        border-radius: 50%
+        background: $color-tile-dark img-url('illustration2.svg') no-repeat center
+        background-size: contain
+
+.tile__head
+  position: relative
+  padding: 28px 20px 20px
+  border-bottom: 2px solid $color-bg-main
+  .title
+    display: inline-block
+    vertical-align: middle
+  .tile__small-text
+    margin-top: 8px
+
+.tile__body
+  padding: 20px
+
+.tile__footer
+  padding: 20px
+  border-top: 2px solid $color-bg-main
+
+.tile__small-text
+  display: block
+  color: rgba($color-text-main, 0.6)
+  font-size: 12px
+  line-height: 1.1
+
+.tile__check-all
+  position: absolute
+  top: 20px
+  right: 20px
+
+.tile-panel
+  background: $color-tile-dark
+  position: relative
+  margin: 0 10px
+  z-index: 0
+  .check-group.l-cell
+    border-color: $color-tile-dark-border
+
+.check-group
+  padding: 20px
+  text-align: center
+  font-size: 15px
+  line-height: 1.2
+  p
+    &:not(:first-child)
+      margin-top: 5px
+  small
+    font-size: 12px
+  .radio_simple
+    margin-bottom: 10px
+  .demo-btn
+    position: relative
+    width: 0
+    top: 2px
+    left: 18px
+  &.l-cell
+    border-left: 2px solid $color-bg-main
+    &:first-child
+      border-left: none
+  &:hover
+    background: $color-tile-dark-border
+    .demo-btn
+      color: $color-blue
+
+.check-group__title
+  +f(b, 17)
+  margin-bottom: 10px

@@ -1,16 +1,19 @@
 body
-  background: #FFF
+  background: $color-bg-main
   color: $color-text-main
   +f(t, 15, 21)
   +smooth-font
   min-width: $layout-width + 40px
+  &.modal-open
+    overflow: hidden
 
 b, strong
   +f(b)
 
 a
   color: $color-blue
-  text-decoration: underline
+  &:not(:hover)
+    text-decoration: none
 
 .l
   max-width: $layout-width + px
@@ -18,8 +21,32 @@ a
   padding: 0 20px
   box-sizing: content-box
 
-.drop
+.l-row
+  display: flex
+  align-items: stretch
+  align-content: stretch
+  flex-wrap: nowrap
+
+.l-col
+  box-sizing: border-box
+
+.l-cell
+  width: 100%
+  box-sizing: border-box
+
+.l-multicolumn
+  display: flex
+  align-items: stretch
+  justify-content: space-between
+
+.dropdown
   position: relative
 
 .icon
   fill: currentColor
+
+.text-important
+  color: $color-text-important
+
+.text-green
+  color: $color-text-green

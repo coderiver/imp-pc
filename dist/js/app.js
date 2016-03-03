@@ -1,13 +1,11 @@
 $(function() {
 
-    // dropdowns
-    $('[data-trigger]').on('click', function(e) {
-        var _this = $(this);
-        var parent = _this.parents('.drop');
-
-        e.preventDefault();
-
-        parent.toggleClass('is-open');
+    // radio groups
+    $('.check-group .radio, .check-group .check').on('click', function(e) {
+        e.stopPropagation();
+    });
+    $('.check-group').on('click', function(e) {
+        $(this).find('input[type="radio"], input[type="checkbox"]').trigger('click');
     });
 
     // attendance slider
