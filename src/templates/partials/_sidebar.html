@@ -1,0 +1,94 @@
+<!-- BEGIN sidebar -->
+<div class="sidebar">
+  <div class="sidebar__top">
+    <div class="payment">
+      <div class="payment__content">
+
+        <div class="payment__tab-content fade active in" id="monthly-payments">
+          <div class="payment-field">
+            <label for="payment-1" class="payment-field__label">Setup Fee</label>
+            <input class="payment-field__input" type="number" name="monthly_one_time" id="payment-1" value="0">
+            <span class="payment-field__currency">{{ mixins.icon('currency-usd') }}</span>
+            <small class="payment-field__footer">one-time</small>
+          </div>
+          <div class="payment-field">
+            <label for="payment-2" class="payment-field__label">Monthly Fee</label>
+            <input class="payment-field__input" type="number" name="monthly_one_time" id="payment-2" value="0">
+            <span class="payment-field__currency">{{ mixins.icon('currency-usd') }}</span>
+            <small class="payment-field__footer">/month</small>
+          </div>
+          <small>Ask us about options to reduce monthly payment</small>
+        </div>
+
+        <div class="payment__tab-content fade" id="annually-payments">
+          <div class="payment-field">
+            <label for="payment-3" class="payment-field__label">Setup Fee</label>
+            <input class="payment-field__input" type="number" name="monthly_one_time" id="payment-3" value="0">
+            <span class="payment-field__currency">{{ mixins.icon('currency-usd') }}</span>
+            <small class="payment-field__footer">one-time</small>
+          </div>
+          <div class="payment-field">
+            <label for="payment-4" class="payment-field__label">Monthly Fee</label>
+            <input class="payment-field__input" type="number" name="monthly_one_time" id="payment-4" value="0">
+            <span class="payment-field__currency">{{ mixins.icon('currency-usd') }}</span>
+            <small class="payment-field__footer">/month</small>
+          </div>
+          <small>Ask us about options to reduce annualy payment</small>
+        </div>
+
+        <div class="payment__tab-content fade" id="two-years-payments">
+          <div class="payment-field">
+            <label for="payment-5" class="payment-field__label">Setup Fee</label>
+            <input class="payment-field__input" type="number" name="monthly_one_time" id="payment-5" value="0">
+            <span class="payment-field__currency">{{ mixins.icon('currency-usd') }}</span>
+            <small class="payment-field__footer">one-time</small>
+          </div>
+          <div class="payment-field">
+            <label for="payment-6" class="payment-field__label">Monthly Fee</label>
+            <input class="payment-field__input" type="number" name="monthly_one_time" id="payment-6" value="0">
+            <span class="payment-field__currency">{{ mixins.icon('currency-usd') }}</span>
+            <small class="payment-field__footer">/month</small>
+          </div>
+          <small>Ask us about options to reduce 2 Years payment</small>
+        </div>
+
+      </div>
+
+      <ul class="payment__tabs l-row">
+        <li class="payment__tab l-cell active">
+          <button class="payment__tab-btn" data-toggle="tab" data-target="#monthly-payments">Monthly</button>
+        </li>
+        <li class="payment__tab l-cell">
+          <button class="payment__tab-btn" data-toggle="tab" data-target="#annually-payments">Annually <small>10% Off</small></button>
+        </li>
+        <li class="payment__tab l-cell">
+          <button class="payment__tab-btn" data-toggle="tab" data-target="#two-years-payments">2 Years <small>20% Off</small></button>
+        </li>
+      </ul>
+    </div>
+
+    <form class="field field_with-btn field_promo-code">
+      <input type="text" class="field__input" id="promo-code" name="promo_code" autocomplete="off">
+      <label for="promo-code" class="field__label">Promotion code</label>
+      <button type="button" class="field__clear">{{ mixins.icon('close') }}</button>
+      <button type="submit" class="field__button">Apply</button>
+    </form>
+
+    <button class="cta-btn">
+      Get started
+      <div class="processing-anim"><span>.</span><span>.</span><span>.</span></div>
+    </button>
+  </div>
+  <div class="sidebar__bottom">
+    <button class="btn-icon" data-toggle="modal" data-target="#modal-callback">
+      {{ mixins.icon('btn-callback') }}
+      <span>Request a Callback</span>
+    </button>
+
+    <button class="btn-icon" data-toggle="modal" data-target="#modal-question">
+      {{ mixins.icon('btn-email') }}
+      <span>Email Your Questions</span>
+    </button>
+  </div>
+</div>
+<!-- END sidebar -->

@@ -1,0 +1,130 @@
+.sidebar
+  position: fixed
+  z-index: 10
+  top: 0
+  right: 0
+  bottom: 0
+  width: 300px
+  box-sizing: border-box
+  background: $color-sidebar-bg
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  overflow: auto
+  +smooth-scroll
+  +scrollbar
+    width: 3px
+  +scrollbar-track-piece
+    background: $color-sidebar-bg
+  +scrollbar-thumb
+    background: $color-border
+  .modal-open &
+    right: 15px
+
+.sidebar__top
+  padding: 30px 20px 0
+  .payment
+    margin: -30px -20px 30px
+  .cta-btn
+    margin-top: 16px
+
+.sidebar__bottom
+  text-align: center
+  padding: 20px 20px 30px
+  .btn-icon
+    display: block
+    margin: 25px auto 0
+  +rh(820)
+    .btn-icon
+      display: inline-block
+      margin: 5px 5px 0
+
+.payment__content
+  position: relative
+  background: $color-blue
+  color: white
+
+.payment__tab-content
+  padding: 35px 20px 20px
+  display: none
+  text-align: center
+  small
+    font-size: 12px
+    opacity: 0.9
+  .payment-field
+    &:not(:first-child)
+      margin-top: 25px
+  &.fade
+    opacity: 0
+    transform: translateY(-10px)
+    transition: all 0.3s ease
+  &.active
+    display: block
+  &.in
+    opacity: 1
+    transform: translateY(0)
+
+.payment__tab
+  +trans
+  &.active
+    background: $color-blue
+    color: white
+    .payment__tab-btn
+      small
+        color: white
+
+.payment__tab-btn
+  display: block
+  width: 100%
+  height: 80px
+  box-sizing: border-box
+  background: none
+  text-align: center
+  +f(b, 16, 20)
+  color: inherit
+  small
+    display: block
+    +f(t, 12)
+    color: $color-blue
+    +trans(color)
+
+.payment-field
+  position: relative
+  width: 140px
+  margin: auto
+  text-align: center
+
+.payment-field__label
+  display: block
+  margin-bottom: 10px
+  +f(b, 24, 26)
+
+.payment-field__input
+  display: block
+  width: 100%
+  height: 64px
+  box-sizing: border-box
+  border: 2px solid rgba(white, 0.5)
+  text-align: center
+  border-radius: 5px
+  background: none
+  color: inherit
+  +f(t, 50)
+  +trans
+  +hide-input-arrows
+  &:focus
+    border-color: white
+    ~ .payment-field__currency
+      opacity: 1
+
+.payment-field__footer
+  font-size: 12px
+
+.payment-field__currency
+  position: absolute
+  top: 54px
+  right: 100%
+  margin-right: 10px
+  opacity: 0.5
+  font-size: 28px
+  +trans

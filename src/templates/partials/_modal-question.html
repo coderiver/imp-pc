@@ -1,9 +1,10 @@
-<div class="modal fade" id="myModal">
+<div class="modal fade" id="modal-question">
   <div class="modal-dialog">
     <div class="modal-content">
-      <h3 class="title title_lg">See Pricing Now or Get Started</h3>
-      <p class="subtitle">No strings attached, open & simple pricing</p>
+      <button class="modal-close-btn" data-dismiss="modal">{{ mixins.icon('close') }}</button>
       <form class="callback-form">
+        <h3 class="title title_lg">See Pricing Now or Get Started</h3>
+        <p>No strings attached, open & simple pricing</p>
 
         <div class="field">
           <input class="field__input" type="email" name="email" id="email">
@@ -19,15 +20,22 @@
 
         <div class="field">
           <input class="field__input" type="text" name="last_name" id="last-name">
-          <label class="field__label" for="last-name">First Name</label>
+          <label class="field__label" for="last-name">Last Name</label>
           <div class="field__left-icon">{{ mixins.icon('person') }}</div>
         </div>
 
         <div class="field">
           <input class="field__input" type="text" name="org_name" id="org-name">
-          <label class="field__label" for="org-name">First Name</label>
+          <label class="field__label" for="org-name">Organization Name</label>
           <div class="field__left-icon">{{ mixins.icon('portfolio') }}</div>
         </div>
+
+        <a href="#" class="cta-btn">View pricing or get started</a>
+
+        <button type="submit" class="btn-icon">
+          {{ mixins.icon('btn-callback') }}
+          <span>Request a Callback</span>
+        </button>
 
       </form>
     </div>

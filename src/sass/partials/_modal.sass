@@ -30,19 +30,47 @@
   padding: 20px
   z-index: 999
   white-space: nowrap
+  overflow: auto
   +vertical
+  &.fade
+    .modal-dialog
+      transform: scale(1.1)
+      transition: 0.3s ease
+      transition-property: opacity, transform
+      opacity: 0
+  &.in
+    .modal-dialog
+      transform: scale(1)
+      opacity: 1
 
 .modal-dialog
+  position: relative
   display: inline-block
   vertical-align: middle
   width: 100%
   max-width: 640px
-  font-size: 18px
+  font-size: 15px
   text-align: left
   white-space: normal
 
 .modal-content
-  margin-bottom: auto
+  position: relative
   background: white
   border: 1px solid #979797
   box-sizing: border-box
+  padding: 50px 30px 30px
+
+.modal-close-btn
+  position: absolute
+  top: 15px
+  right: 15px
+  padding: 5px
+  background: none
+  font-size: 14px
+  color: inherit
+  opacity: 0.5
+  +trans(opacity)
+  .icon
+    display: block
+  &:hover
+    opacity: 1

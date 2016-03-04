@@ -1,9 +1,3 @@
-.field
-  &:not(:first-child)
-    margin-top: 20px
-  &:not(:last-child)
-    margin-bottom: 20px
-
 .field__label
   position: absolute
   z-index: 0
@@ -36,6 +30,35 @@
     transition-duration: 0.2s
     transition-property: opacity, visibility
 
+.field__button
+  position: absolute
+  top: 0
+  right: 0
+  height: 100%
+  width: 64px
+  background: $color-text-main
+  color: white
+  +f(t, 15)
+  border-radius: 0 2px 2px 0
+  +trans
+  &:hover
+    background: $color-blue
+
+.field__clear
+  display: none
+  position: absolute
+  top: 50%
+  right: 8px
+  font-size: 14px
+  margin-top: -0.5em
+  background: none
+  opacity: 0.5
+  +trans
+  .icon
+    display: block
+  &:hover
+    opacity: 1
+
 .field__input
   display: block
   height: 40px
@@ -57,38 +80,46 @@
     outline: none
     border-color: $color-blue
     background: #FFF
-    box-shadow: 0px 0px 4px 0px rgba(73,143,225,0.50)
-  &._phone
+    box-shadow: 0 0 4px 0 rgba($color-blue, 0.50)
+  &_phone
     padding-left: 86px
   &.is-valid
-    border-color: $color-field-green
+    border-color: $color-green
     & ~  .field__left-icon
-      color: $color-field-green
+      color: $color-green
 
 .field
   position: relative
   box-sizing: border-box
   color: $color-border
   border-radius: 3px
-  &._phone
+  &:not(:first-child)
+    margin-top: 20px
+  &:not(:last-child)
+    margin-bottom: 20px
+  &_phone
     .field__input
       padding-left: 86px
     .field__label
       left: 86px
 
-  &._no-left-icon
+  &_no-left-icon
     .field__input
       padding-left: 8px
     .field__label
       left: 8px
 
-  &._right-icon
+  &_with-btn
+    .field__input
+      padding-right: 75px
+
+  &_right-icon
     .field__input
       padding-right: 36px
     .field__label
       padding-right: 36px
 
-  &._solid-bg
+  &_solid-bg
     .field__input
       background: #FFF
       border-color: $color-text-main
@@ -96,7 +127,7 @@
         box-shadow: none
         border-color: $color-blue
 
-  &._simple
+  &_simple
     .field__input
       &:not(:focus)
         border-color: $color-text-main
@@ -107,6 +138,8 @@
   &.is-filled
     .field__label
       opacity: 0
+    .field__clear
+      display: block
     &.is-focus
       .field__label
         transform-origin: left bottom
@@ -119,6 +152,27 @@
           opacity: 1
           visibility: visible
 
+  &_promo-code
+    .field__input
+      padding-left: 12px
+      background: $color-sidebar-bg
+      +f(b, 26)
+    .field__label
+      left: 12px
+    .field__clear
+      right: 70px
+    &.is-focus
+      .field__input
+        border-color: $color-text-main
+        box-shadow: 0 0 4px 0 rgba($color-text-main, 0.5)
+      .field__label
+        border-color: $color-text-main
+        color: $color-text-main
+    &.is-filled
+      &.is-focus
+        .field__label
+          background: $color-sidebar-bg
+
   &.is-focus
     color: $color-blue
     .field__label
@@ -126,11 +180,11 @@
       background: #FFF
 
   &.is-valid
-    color: $color-field-green
+    color: $color-green
     .field__input
-      border-color: $color-field-green
+      border-color: $color-green
     .field__left-icon
-      color: $color-field-green
+      color: $color-green
 
   &.is-error
     color: $color-field-red
@@ -185,11 +239,11 @@
   color: $color-border
   &:before
     position: relative
-  &._eye-open
+  &_eye-open
     // font-size: 9px
     font-size: 16px
     cursor: pointer
-  &._eye-closed
+  &_eye-closed
     // font-size: 7px
     font-size: 16px
     cursor: pointer

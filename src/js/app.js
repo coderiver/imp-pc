@@ -11,6 +11,16 @@ $(function() {
             if (!$this.val()) $this.parent().removeClass('is-filled');
         });
 
+    $('.field__clear').on('click', function(e) {
+        var parent = $(this).parents('.field');
+        var input = parent.find('.field__input');
+        e.preventDefault();
+        if (input.val()) {
+            input.val('');
+            parent.removeClass('is-filled');
+        }
+    });
+
     // radio groups
     $('.check-group .radio, .check-group .check').on('click', function(e) {
         e.stopPropagation();
@@ -46,8 +56,6 @@ $(function() {
     function onSliderChange(strVal, handle, val, tap, positions) {
         var value = val[handle];
         var newBpIndex = getBpIndex(value);
-        console.log(newBpIndex);
-        console.log(strVal, handle, val, tap, positions);
 
         displayedValue.text(formatValueSting(val[handle], values));
 

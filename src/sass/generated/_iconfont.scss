@@ -11,16 +11,19 @@
 
 $icon-at: "\EA01";
 $icon-btn-callback: "\EA02";
-$icon-btn-ok: "\EA03";
-$icon-chevron-down: "\EA04";
-$icon-demo: "\EA05";
-$icon-hint: "\EA06";
-$icon-man: "\EA07";
-$icon-people-2: "\EA08";
-$icon-people-3: "\EA09";
-$icon-people-5: "\EA0A";
-$icon-person: "\EA0B";
-$icon-portfolio: "\EA0C";
+$icon-btn-email: "\EA03";
+$icon-btn-ok: "\EA04";
+$icon-chevron-down: "\EA05";
+$icon-close: "\EA06";
+$icon-currency-usd: "\EA07";
+$icon-demo: "\EA08";
+$icon-hint: "\EA09";
+$icon-man: "\EA0A";
+$icon-people-2: "\EA0B";
+$icon-people-3: "\EA0C";
+$icon-people-5: "\EA0D";
+$icon-person: "\EA0E";
+$icon-portfolio: "\EA0F";
 
 
 %icon {
@@ -41,8 +44,11 @@ $icon-portfolio: "\EA0C";
 
 .icon-at:before { content: $icon-at; }
 .icon-btn-callback:before { content: $icon-btn-callback; }
+.icon-btn-email:before { content: $icon-btn-email; }
 .icon-btn-ok:before { content: $icon-btn-ok; }
 .icon-chevron-down:before { content: $icon-chevron-down; }
+.icon-close:before { content: $icon-close; }
+.icon-currency-usd:before { content: $icon-currency-usd; }
 .icon-demo:before { content: $icon-demo; }
 .icon-hint:before { content: $icon-hint; }
 .icon-man:before { content: $icon-man; }
