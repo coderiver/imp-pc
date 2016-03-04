@@ -1,0 +1,61 @@
+<div class="modal fade" id="modal-affiliate">
+  <div class="modal-dialog modal-dialog_w800">
+    <div class="modal-content">
+      <button class="modal-close-btn" data-dismiss="modal">{{ mixins.icon('close') }}</button>
+      <form class="affiliate-form">
+        <h3 class="title title_lg">Affiliate Registration</h3>
+        <p class="subtitle">Earn up to 50% commissions with our affiliate program. We want you to earn more!</p>
+
+        <div class="field">
+          <input class="field__input" type="email" name="f_email" id="f-email">
+          <label class="field__label" for="f-email">Enter Your Email Address</label>
+          <div class="field__left-icon">{{ mixins.icon('at') }}</div>
+        </div>
+
+        <div class="field">
+          <input class="field__input" type="url" name="url" id="url">
+          <label class="field__label" for="url">Enter Your Website</label>
+          <div class="field__left-icon">{{ mixins.icon('world') }}</div>
+        </div>
+
+        <div class="field">
+          <input class="field__input" type="text" name="first_name" id="first-name">
+          <label class="field__label" for="first-name">First Name</label>
+          <div class="field__left-icon">{{ mixins.icon('person') }}</div>
+        </div>
+
+        <div class="field">
+          <input class="field__input" type="text" name="last_name" id="last-name">
+          <label class="field__label" for="last-name">Last Name</label>
+          <div class="field__left-icon">{{ mixins.icon('person') }}</div>
+        </div>
+
+        <div class="field">
+          <input class="field__input" type="text" name="username" id="username">
+          <label class="field__label" for="username">Affiliate Username</label>
+          <div class="field__left-icon">{{ mixins.icon('person2') }}</div>
+        </div>
+
+        <div class="field">
+          <input class="field__input" type="password" name="password" id="password">
+          <label class="field__label" for="password">Organization Name</label>
+          <div class="field__left-icon">{{ mixins.icon('key') }}</div>
+        </div>
+
+        <p class="form-text-row">
+          <small>By creating an account, you agree to the</small>
+          <a href="#">Affiliate Program Terms and Conditions</a>
+        </p>
+
+        <button type="submit" class="cta-btn">
+          Sign up
+          <span class="processing-anim"><span>.</span><span>.</span><span>.</span></span>
+        </button>
+
+        <p class="form-text-row"><small>Already have an account?</small> <a href="#">Affiliate Login</a></p>
+        <p class="form-text-row"><small>Trusted by <strong>25,000 affiliates</strong> worldwide</small></p>
+
+      </form>
+    </div>
+  </div>
+</div>

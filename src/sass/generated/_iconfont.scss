@@ -18,12 +18,15 @@ $icon-close: "\EA06";
 $icon-currency-usd: "\EA07";
 $icon-demo: "\EA08";
 $icon-hint: "\EA09";
-$icon-man: "\EA0A";
-$icon-people-2: "\EA0B";
-$icon-people-3: "\EA0C";
-$icon-people-5: "\EA0D";
-$icon-person: "\EA0E";
-$icon-portfolio: "\EA0F";
+$icon-key: "\EA0A";
+$icon-man: "\EA0B";
+$icon-people-2: "\EA0C";
+$icon-people-3: "\EA0D";
+$icon-people-5: "\EA0E";
+$icon-person: "\EA0F";
+$icon-person2: "\EA10";
+$icon-portfolio: "\EA11";
+$icon-world: "\EA12";
 
 
 %icon {
@@ -51,9 +54,12 @@ $icon-portfolio: "\EA0F";
 .icon-currency-usd:before { content: $icon-currency-usd; }
 .icon-demo:before { content: $icon-demo; }
 .icon-hint:before { content: $icon-hint; }
+.icon-key:before { content: $icon-key; }
 .icon-man:before { content: $icon-man; }
 .icon-people-2:before { content: $icon-people-2; }
 .icon-people-3:before { content: $icon-people-3; }
 .icon-people-5:before { content: $icon-people-5; }
 .icon-person:before { content: $icon-person; }
+.icon-person2:before { content: $icon-person2; }
 .icon-portfolio:before { content: $icon-portfolio; }
+.icon-world:before { content: $icon-world; }

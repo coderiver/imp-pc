@@ -5,6 +5,11 @@
   &_lg
     +f(b, 32, 34)
 
+.subtitle
+  +f(t, 18, 23)
+  &:not(:first-child)
+    margin-top: 15px
+
 .select-trigger
   display: block
   position: relative
@@ -173,6 +178,12 @@
   &:disabled,
   &[disabled]
     cursor: default
+  &_sm
+    min-width: 200px
+    padding: 0 20px
+    height: 50px
+    line-height: 50px
+    width: auto
 
 .processing-anim
   display: inline-block
@@ -397,7 +408,62 @@
     background: $color-tile-dark-border
     .demo-btn
       color: $color-blue
+    .check-group__link
+      opacity: 1
+      visibility: visible
 
 .check-group__title
   +f(b, 17)
   margin-bottom: 10px
+
+.check-group__link
+  opacity: 0
+  visibility: hidden
+  +trans
+
+.card-group
+  display: flex
+  align-items: stretch
+  align-content: flex-start
+  justify-content: center
+  flex-wrap: wrap
+  margin-right: -22px
+  .card
+    width: calc(33.33% - 22px)
+    margin-right: 22px
+
+.card
+  position: relative
+  background: white
+  padding: 70px 25px 80px
+  margin-top: 70px
+  box-sizing: border-box
+  min-height: 240px
+  text-align: center
+  font-size: 16px
+  line-height: 1.2
+
+.card__icon
+  position: absolute
+  top: 0
+  left: 50%
+  width: 106px
+  height: 106px
+  margin: -53px 0 0 -53px
+  img
+    display: block
+
+.card__title
+  display: block
+  margin-bottom: 15px
+  +f(b, 18)
+
+.card__link
+  position: absolute
+  top: 100%
+  margin-top: -40px
+  white-space: nowrap
+  left: 0
+  right: 0
+  padding: 0 25px
+  font-size: 14px
