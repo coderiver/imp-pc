@@ -9,14 +9,18 @@
   font-style: normal;
 }
 
-$icon-btn-ok: "\EA01";
-$icon-chevron-down: "\EA02";
-$icon-demo: "\EA03";
-$icon-hint: "\EA04";
-$icon-man: "\EA05";
-$icon-people-2: "\EA06";
-$icon-people-3: "\EA07";
-$icon-people-5: "\EA08";
+$icon-at: "\EA01";
+$icon-btn-callback: "\EA02";
+$icon-btn-ok: "\EA03";
+$icon-chevron-down: "\EA04";
+$icon-demo: "\EA05";
+$icon-hint: "\EA06";
+$icon-man: "\EA07";
+$icon-people-2: "\EA08";
+$icon-people-3: "\EA09";
+$icon-people-5: "\EA0A";
+$icon-person: "\EA0B";
+$icon-portfolio: "\EA0C";
 
 
 %icon {
@@ -35,6 +39,8 @@ $icon-people-5: "\EA08";
   display: inline-block;
 }
 
+.icon-at:before { content: $icon-at; }
+.icon-btn-callback:before { content: $icon-btn-callback; }
 .icon-btn-ok:before { content: $icon-btn-ok; }
 .icon-chevron-down:before { content: $icon-chevron-down; }
 .icon-demo:before { content: $icon-demo; }
@@ -43,3 +49,5 @@ $icon-people-5: "\EA08";
 .icon-people-2:before { content: $icon-people-2; }
 .icon-people-3:before { content: $icon-people-3; }
 .icon-people-5:before { content: $icon-people-5; }
+.icon-person:before { content: $icon-person; }
+.icon-portfolio:before { content: $icon-portfolio; }

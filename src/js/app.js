@@ -1,5 +1,16 @@
 $(function() {
 
+    // fields
+    $('.field__input')
+        .on('focus', function(e) {
+            $(this).parent().addClass('is-focus is-filled');
+        })
+        .on('blur', function(e) {
+            var $this = $(this);
+            $this.parent().removeClass('is-focus');
+            if (!$this.val()) $this.parent().removeClass('is-filled');
+        });
+
     // radio groups
     $('.check-group .radio, .check-group .check').on('click', function(e) {
         e.stopPropagation();
@@ -13,10 +24,11 @@ $(function() {
     var slider = container.find('.slider');
     var tooltip = container.find('.slider-tooltip').remove();
     var displayedValue = container.find('.attendance__value');
-    var values = [50, 100, 250, 500, 1000, 3000, 5000, 10000, 25000, 30000];
-    var breakpoints = [50, 250, 1000, 5000];
     var currentBpIndex;
     var CLASS_TEST = /bp-\d/g;
+
+    var values = [50, 100, 250, 500, 1000, 3000, 5000, 10000, 25000, 30000];
+    var breakpoints = [50, 250, 1000, 5000];
 
     container.find('.slider-points').html(renderDots(values));
 
