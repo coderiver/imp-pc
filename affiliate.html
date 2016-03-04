@@ -25,29 +25,108 @@
 
     <!-- BEGIN content -->
     <div class="content-wrapper">
-      <div class="l">
-        <h1>Title</h1></div>
+      <div class="affiliate">
+        <h1 class="title title_lg align-center">Join our Affiliate Program</h1>
+        <p class="subtitle align-center">Earn up to 50% commissions with our affiliate program.</p>
+        <form class="cta-input-group">
+          <div class="field">
+            <input class="field__input" type="email" name="email" id="email">
+            <label for="email" class="field__label">Enter Your Email Address</label>
+            <span class="field__left-icon">  <svg class="icon icon-at">
+    <use xlink:href="img/sprite.svg#icon-at"></use>
+  </svg>
+</span>
+          </div>
+          <button type="submit" class="cta-btn cta-btn_sm">Get started</button>
+          <a class="cta-input-group__link" href="#modal-affiliate" data-toggle="modal">Affiliate Login</a>
+        </form>
+
+        <h2 class="title title_lg align-center">Why partner with us?</h2>
+
+        <div class="card-group">
+          <div class="card">
+            <div class="card__icon"><img src="img/ico-anione.svg"></div>
+            <strong class="card__title">Anyone Can Become an Affiliate</strong>
+            <p class="card__text">
+              Are you a blogger?
+              <br> Are you a web designer/developer?
+              <br> Are you an Internet consultant?
+            </p>
+            <span class="card__link"><a href="#">Read more</a></span>
+          </div>
+
+          <div class="card">
+            <div class="card__icon"><img src="img/ico-integration.svg"></div>
+            <strong class="card__title">Quick and Easy Integration</strong>
+            <p class="card__text">It takes you only 3 click to start selling</p>
+            <span class="card__link"><a href="#">Read more</a></span>
+          </div>
+
+          <div class="card">
+            <div class="card__icon"><img src="img/ico-return.svg"></div>
+            <strong class="card__title">365 Return Days</strong>
+            <p class="card__text">
+              All-year-around active cookies.
+              <br> We pay for each sale, not just for the first one.
+            </p>
+            <span class="card__link"><a href="#">Read more</a></span>
+          </div>
+
+          <div class="card">
+            <div class="card__icon"><img src="img/ico-commission.svg"></div>
+            <strong class="card__title">Progressive Commission Plan</strong>
+            <p class="card__text">Increase your commission rate up to 50%</p>
+            <span class="card__link"><a href="#">Read more</a></span>
+          </div>
+
+          <div class="card">
+            <div class="card__icon"><img src="img/ico-payment.svg"></div>
+            <strong class="card__title">We Pay Globally and Quickly</strong>
+            <p class="card__text"><img src="img/cards.svg" alt="Payment Cards"></p>
+            <span class="card__link"><a href="#">Read more</a></span>
+          </div>
+
+          <div class="card">
+            <div class="card__icon"><img src="img/ico-recruiting.svg"></div>
+            <strong class="card__title">Get $ for Recruiting Affiliates</strong>
+            <p class="card__text">
+              Your cut is 5% Life-long.
+              <br> Build your own empire just by spreading the world!
+            </p>
+            <span class="card__link"><a href="#">Read more</a></span>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- END content -->
 
     <!-- BEGIN modals -->
 
-    <div class="modal fade" id="modal-callback">
-      <div class="modal-dialog">
+    <div class="modal fade" id="modal-affiliate">
+      <div class="modal-dialog modal-dialog_w800">
         <div class="modal-content">
           <button class="modal-close-btn" data-dismiss="modal">  <svg class="icon icon-close">
     <use xlink:href="img/sprite.svg#icon-close"></use>
   </svg>
 </button>
-          <form class="callback-form">
-            <h3 class="title title_lg">See Pricing Now or Get Started</h3>
-            <p>No strings attached, open & simple pricing</p>
+          <form class="affiliate-form">
+            <h3 class="title title_lg">Affiliate Registration</h3>
+            <p class="subtitle">Earn up to 50% commissions with our affiliate program. We want you to earn more!</p>
 
             <div class="field">
-              <input class="field__input" type="email" name="email" id="email">
-              <label class="field__label" for="email">Enter Your Email Address</label>
+              <input class="field__input" type="email" name="f_email" id="f-email">
+              <label class="field__label" for="f-email">Enter Your Email Address</label>
               <div class="field__left-icon"> <svg class="icon icon-at">
     <use xlink:href="img/sprite.svg#icon-at"></use>
+  </svg>
+              </div>
+            </div>
+
+            <div class="field">
+              <input class="field__input" type="url" name="url" id="url">
+              <label class="field__label" for="url">Enter Your Website</label>
+              <div class="field__left-icon"> <svg class="icon icon-world">
+    <use xlink:href="img/sprite.svg#icon-world"></use>
   </svg>
               </div>
             </div>
@@ -71,84 +150,35 @@
             </div>
 
             <div class="field">
-              <input class="field__input" type="text" name="org_name" id="org-name">
-              <label class="field__label" for="org-name">Organization Name</label>
-              <div class="field__left-icon"> <svg class="icon icon-portfolio">
-    <use xlink:href="img/sprite.svg#icon-portfolio"></use>
+              <input class="field__input" type="text" name="username" id="username">
+              <label class="field__label" for="username">Affiliate Username</label>
+              <div class="field__left-icon"> <svg class="icon icon-person2">
+    <use xlink:href="img/sprite.svg#icon-person2"></use>
   </svg>
               </div>
             </div>
 
-            <a href="#" class="cta-btn">View pricing or get started</a>
-
-            <button type="submit" class="btn-icon">
-            <svg class="icon icon-btn-callback">
-    <use xlink:href="img/sprite.svg#icon-btn-callback"></use>
+            <div class="field">
+              <input class="field__input" type="password" name="password" id="password">
+              <label class="field__label" for="password">Organization Name</label>
+              <div class="field__left-icon"> <svg class="icon icon-key">
+    <use xlink:href="img/sprite.svg#icon-key"></use>
   </svg>
+              </div>
+            </div>
 
-          <span>Request a Callback</span>
+            <p class="form-text-row">
+              <small>By creating an account, you agree to the</small>
+              <a href="#">Affiliate Program Terms and Conditions</a>
+            </p>
+
+            <button type="submit" class="cta-btn">
+          Sign up
+          <span class="processing-anim"><span>.</span><span>.</span><span>.</span></span>
         </button>
 
-          </form>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="modal-question">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <button class="modal-close-btn" data-dismiss="modal">  <svg class="icon icon-close">
-    <use xlink:href="img/sprite.svg#icon-close"></use>
-  </svg>
-</button>
-          <form class="callback-form">
-            <h3 class="title title_lg">See Pricing Now or Get Started</h3>
-            <p>No strings attached, open & simple pricing</p>
-
-            <div class="field">
-              <input class="field__input" type="email" name="email" id="email">
-              <label class="field__label" for="email">Enter Your Email Address</label>
-              <div class="field__left-icon"> <svg class="icon icon-at">
-    <use xlink:href="img/sprite.svg#icon-at"></use>
-  </svg>
-              </div>
-            </div>
-
-            <div class="field">
-              <input class="field__input" type="text" name="first_name" id="first-name">
-              <label class="field__label" for="first-name">First Name</label>
-              <div class="field__left-icon"> <svg class="icon icon-person">
-    <use xlink:href="img/sprite.svg#icon-person"></use>
-  </svg>
-              </div>
-            </div>
-
-            <div class="field">
-              <input class="field__input" type="text" name="last_name" id="last-name">
-              <label class="field__label" for="last-name">Last Name</label>
-              <div class="field__left-icon"> <svg class="icon icon-person">
-    <use xlink:href="img/sprite.svg#icon-person"></use>
-  </svg>
-              </div>
-            </div>
-
-            <div class="field">
-              <input class="field__input" type="text" name="org_name" id="org-name">
-              <label class="field__label" for="org-name">Organization Name</label>
-              <div class="field__left-icon"> <svg class="icon icon-portfolio">
-    <use xlink:href="img/sprite.svg#icon-portfolio"></use>
-  </svg>
-              </div>
-            </div>
-
-            <a href="#" class="cta-btn">View pricing or get started</a>
-
-            <button type="submit" class="btn-icon">
-            <svg class="icon icon-btn-callback">
-    <use xlink:href="img/sprite.svg#icon-btn-callback"></use>
-  </svg>
-
-          <span>Request a Callback</span>
-        </button>
+            <p class="form-text-row"><small>Already have an account?</small> <a href="#">Affiliate Login</a></p>
+            <p class="form-text-row"><small>Trusted by <strong>25,000 affiliates</strong> worldwide</small></p>
 
           </form>
         </div>
