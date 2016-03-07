@@ -1,6 +1,6 @@
 $(function() {
 
-    // show sidebar
+    // show step 2
     (function() {
         var wrapper = $('.l-content-wrapper');
         var sidebar = $('.l-page-sidebar');
@@ -104,7 +104,9 @@ $(function() {
         var slider = container.find('.slider');
         var tooltip = container.find('.slider-tooltip').remove();
         var displayedValue = container.find('.attendance__value');
+        var displayedValueText = displayedValue.find('.attendance__value-text');
         var currentBpIndex;
+        var prevValue;
         var CLASS_TEST = /bp-\d/g;
 
         var values = [50, 100, 250, 500, 1000, 3000, 5000, 10000, 25000, 30000];
@@ -127,7 +129,7 @@ $(function() {
             var value = val[handle];
             var newBpIndex = getBpIndex(value);
 
-            displayedValue.text(formatValueSting(val[handle], values));
+            changeDisplayedValue(value);
 
             if (newBpIndex !== currentBpIndex) {
                 tooltip
@@ -138,6 +140,8 @@ $(function() {
                     })
                     .addClass('bp-' + (newBpIndex + 1));
             }
+
+            prevValue = value;
         }
 
         function createRange(values) {
@@ -199,6 +203,15 @@ $(function() {
                 if (val >= breakpoints[i] && val < (breakpoints[i + 1] || Infinity)) return i;
             }
             return 0;
+        }
+
+        function changeDisplayedValue(newValue) {
+            var className = (newValue > prevValue) ? 'is-increase' : 'is-decrease';
+            displayedValue.addClass(className);
+            setTimeout(function() {
+                displayedValueText.text(formatValueSting(newValue, values));
+                displayedValue.width(displayedValueText.width()).removeClass(className);
+            }, 100);
         }
     })();
 });

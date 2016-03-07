@@ -32,16 +32,36 @@
 .attendance__value
   display: inline-block
   vertical-align: top
-  min-width: 304px
+  min-width: 264px
   padding: 0 20px
   height: 74px
   margin: 40px auto 0
-  box-sizing: border-box
+  box-sizing: content-box
   border-radius: 5px
   text-align: center
   border: 2px solid
   font-size: 59px
   line-height: 74px
+  position: relative
+  transition: width 0.2s ease
+  overflow: hidden
+  &.is-decrease
+    .attendance__value-inner
+      transform: translateY(100%)
+      opacity: 0
+  &.is-increase
+    .attendance__value-inner
+      transform: translateY(-100%)
+      opacity: 0
+
+.attendance__value-inner
+  position: absolute
+  top: 0
+  height: 100%
+  left: 50%
+  width: 500px
+  margin-left: -250px
+  transition: all 0.2s ease
 
 .attendance__footer
   background: #4290EC
@@ -129,3 +149,6 @@
   max-width: 960px
   padding: 60px 20px 60px
   margin: auto
+
+#btn-confirm
+  margin-bottom: 20px
