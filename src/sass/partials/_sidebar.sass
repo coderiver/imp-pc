@@ -1,23 +1,24 @@
 .sidebar
-  position: fixed
-  z-index: 10
-  top: 0
-  right: 0
-  bottom: 0
-  width: 300px
+  //position: fixed
+  //z-index: 10
+  //top: 0
+  //right: 0
+  //bottom: 0
+  //width: 300px
   box-sizing: border-box
   background: $color-sidebar-bg
   display: flex
   flex-direction: column
   justify-content: space-between
-  overflow: auto
-  +smooth-scroll
-  +scrollbar
-    width: 3px
-  +scrollbar-track-piece
-    background: $color-sidebar-bg
-  +scrollbar-thumb
-    background: $color-border
+  min-height: 100%
+  //overflow: auto
+  //+smooth-scroll
+  //+scrollbar
+  //  width: 3px
+  //+scrollbar-track-piece
+  //  background: $color-sidebar-bg
+  //+scrollbar-thumb
+  //  background: $color-border
   .modal-open &
     right: 15px
 
@@ -30,7 +31,7 @@
 
 .sidebar__bottom
   text-align: center
-  padding: 20px 20px 30px
+  padding: 20px 0 30px
   .btn-icon
     display: block
     margin: 25px auto 0

@@ -1,5 +1,6 @@
 ---
 title: Pricing Page
+page_class: 'page-with-sidebar'
 checkboxes:
   -
     - Events
@@ -38,260 +39,274 @@ checkboxes2:
 
 {% block content %}
 
-  <!-- BEGIN header -->
-  <header class="header l">
-    <img class="header__pic" src="img/illustartion.svg" alt="illustartion">
-    <h1 class="header__title title">Price Configurator</h1>
-    <div class="header__aside-btn dropdown">
-      <button class="btn-round" data-toggle="dropdown">Already have an app?</button>
-      <div class="tooltip tooltip_lg">
-        If you already have an app and wish to upgrade to our solution
-        as most of our clients did, as a welcome gift, we will create stunning
-        custom design for your app at no cost ($250/-$500  value).
-        <a href="#"><strong>Please contact us</strong></a> before configuring this page.
-      </div>
-    </div>
-  </header>
-  <!-- END header -->
+  <div class="l-page-content">
 
-  <div class="type-select dropdown">
-    <button class="select-trigger" data-toggle="dropdown">
-      <span>Faith-Based</span>
-      {{ mixins.icon('chevron-down') }}
-    </button>
-  </div>
-
-  <div class="tab-group l">
-    <button class="tab-group__btn is-active">Church</button>
-    <button class="tab-group__btn">Ministry</button>
-  </div>
-
-  <div class="tab-content-group">
-    <div class="tab-content">
-      {% include "partials/_attendance.html" %}
-    </div>
-  </div>
-
-  <div class="align-center">
-    <button class="btn-icon btn-icon_lg">
-      {{ mixins.icon('btn-ok') }}
-      <span>Confirm</span>
-    </button>
-  </div>
-
-  <div class="l">
-    <!-- BEGIN tile -->
-    <div class="tile">
-      <div class="tile__head">
-        <h2 class="title">Do you want to publish app on your Developer Certificate or ours?</h2>
-        <div class="hint">{{ mixins.icon('hint') }}</div>
-      </div>
-      <div class="l-row">
-        <div class="l-cell check-group align-left">
-          {{ mixins.radio('Your Developer Certificate (<strong>$99 one-time fee</strong>)', null, 'name=publish checked') }}
-          <div class="hint">{{ mixins.icon('hint') }}</div>
+    <div class="l">
+      <!-- BEGIN header -->
+      <header class="header">
+        <img class="header__pic" src="img/illustartion.svg" alt="illustartion">
+        <h1 class="header__title title">Price Configurator</h1>
+        <div class="header__aside-btn dropdown">
+          <button class="btn-round" data-toggle="dropdown">Already have an app?</button>
+          <div class="tooltip tooltip_lg">
+            If you already have an app and wish to upgrade to our solution
+            as most of our clients did, as a welcome gift, we will create stunning
+            custom design for your app at no cost ($250/-$500  value).
+            <a href="#"><strong>Please contact us</strong></a> before configuring this page.
+          </div>
         </div>
-        <div class="l-cell check-group align-left">
-          {{ mixins.radio('Our Developer Certificate (<strong>no cost</strong>)', null, 'name=publish') }}
+      </header>
+      <!-- END header -->
+    </div>
+
+    <div id="step-one">
+      <div class="l">
+        <div class="type-select dropdown">
+          <button class="select-trigger" data-toggle="dropdown">
+            <span>Faith-Based</span>
+            {{ mixins.icon('chevron-down') }}
+          </button>
+        </div>
+
+        <div class="tab-group">
+          <button class="tab-group__btn is-active">Church</button>
+          <button class="tab-group__btn">Ministry</button>
         </div>
       </div>
-    </div>
-    <!-- END tile -->
 
-    <!-- BEGIN tile -->
-    <div class="tile-group">
+      <div class="tab-content-group">
+        <div class="tab-content">
+          {% include "partials/_attendance.html" %}
+        </div>
+      </div>
+
+      <div class="align-center">
+        <button class="btn-icon btn-icon_lg" id="btn-confirm">
+          {{ mixins.icon('btn-ok') }}
+          <span>Confirm</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="l" id="step-two">
+
+      <!-- BEGIN tile -->
       <div class="tile">
         <div class="tile__head">
-          <h2 class="title">App Design: App Icon + Splash Screen</h2>
+          <h2 class="title">Do you want to publish app on your Developer Certificate or ours?</h2>
+          <div class="hint">{{ mixins.icon('hint') }}</div>
+        </div>
+        <div class="l-row">
+          <div class="l-cell check-group align-left">
+            {{ mixins.radio('Your Developer Certificate (<strong>$99 one-time fee</strong>)', null, 'name=publish checked') }}
+            <div class="hint">{{ mixins.icon('hint') }}</div>
+          </div>
+          <div class="l-cell check-group align-left">
+            {{ mixins.radio('Our Developer Certificate (<strong>no cost</strong>)', null, 'name=publish') }}
+          </div>
+        </div>
+      </div>
+      <!-- END tile -->
+
+      <!-- BEGIN tile -->
+      <div class="tile-group" id="app-design">
+        <div class="tile">
+          <div class="tile__head">
+            <h2 class="title">App Design: App Icon + Splash Screen</h2>
+          </div>
+
+          <div class="l-row">
+            <div class="l-cell check-group">
+              {{ mixins.radio(null, 'radio_simple', 'name=appicon checked value=1') }}
+              <p>We will create custom design for you</p>
+              <p><strong>$250 One-time fee</strong></p>
+              <p><small class="text-important">Free – Limited Time Offer</small></p>
+            </div>
+            <div class="l-cell check-group">
+              {{ mixins.radio(null, 'radio_simple', 'name=appicon value=2') }}
+              <p>Use our template-based designs</p>
+              <p><strong>Free</strong></p>
+            </div>
+            <div class="l-cell check-group">
+              {{ mixins.radio(null, 'radio_simple', 'name=appicon value=3') }}
+              <p>Your Designer or one of our Partners will&nbsp;create design for your app</p>
+              <p><small>We will provide specification</small></p>
+            </div>
+          </div>
         </div>
 
+        <div class="tile-panel">
+          <div class="l-row">
+            <div class="l-cell check-group">
+              {{ mixins.radio(null, 'radio_simple', 'name=appicon_extend checked') }}
+              <p>
+                Standard App Design Layouts
+                <button class="demo-btn">{{ mixins.icon('demo') }}</button>
+              </p>
+              <p><strong>Included</strong></p>
+            </div>
+            <div class="l-cell check-group">
+              {{ mixins.radio(null, 'radio_simple', 'name=appicon_extend') }}
+              <p>
+                Premium App Design Layouts
+                <button class="demo-btn">{{ mixins.icon('demo') }}</button>
+              </p>
+              <p><strong>$99 One-time fee</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END tile -->
+
+      <!-- BEGIN tile -->
+      <div class="tile tile_dark tile_with-pic">
+        <div class="tile__head">
+          <h2 class="title">Best-practices Fundraising Solution</h2>
+          <div class="hint">{{ mixins.icon('hint') }}</div>
+        </div>
         <div class="l-row">
           <div class="l-cell check-group">
-            {{ mixins.radio(null, 'radio_simple', 'name=appicon checked') }}
-            <p>We will create custom design for you</p>
-            <p><strong>$250 One-time fee</strong></p>
-            <p><small class="text-important">Free – Limited Time Offer</small></p>
+            <p class="check-group__title">Full Package</p>
+            {{ mixins.radio(null, 'radio_simple', 'name=fundraising') }}
+            <p>Only 1.25% of processed donations</p>
+            <p><strong class="text-green">Free</strong></p>
+            <p class="check-group__link"><a href="#"><small>Read More</small></a></p>
           </div>
+
           <div class="l-cell check-group">
-            {{ mixins.radio(null, 'radio_simple', 'name=appicon') }}
-            <p>Use our template-based designs</p>
-            <p><strong>Free</strong></p>
+            <p class="check-group__title">Full Package</p>
+            {{ mixins.radio(null, 'radio_simple', 'name=fundraising') }}
+            <p>Integrated with your merchant provider</p>
+            <p><strong>$50/month</strong></p>
+            <p class="check-group__link"><a href="#"><small>Read More</small></a></p>
           </div>
+
           <div class="l-cell check-group">
-            {{ mixins.radio(null, 'radio_simple', 'name=appicon') }}
-            <p>Your Designer or one of our Partners will&nbsp;create design for your app</p>
-            <p><small>We will provide specification</small></p>
+            <p class="check-group__title">Mobile Giving Only</p>
+            {{ mixins.radio(null, 'radio_simple', 'name=fundraising') }}
+            <p>Integrated with your merchant provider</p>
+            <p><strong>$25/month</strong></p>
+            <p class="check-group__link"><a href="#"><small>Read More</small></a></p>
           </div>
-        </div>
-      </div>
 
-      <div class="tile-panel">
-        <div class="l-row">
           <div class="l-cell check-group">
-            {{ mixins.radio(null, 'radio_simple', 'name=appicon_extend checked') }}
-            <p>
-              Standard App Design Layouts
-              <button class="demo-btn">{{ mixins.icon('demo') }}</button>
-            </p>
-            <p><strong>Included</strong></p>
-          </div>
-          <div class="l-cell check-group">
-            {{ mixins.radio(null, 'radio_simple', 'name=appicon_extend') }}
-            <p>
-              Premium App Design Layouts
-              <button class="demo-btn">{{ mixins.icon('demo') }}</button>
-            </p>
-            <p><strong>$99 One-time fee</strong></p>
+            <p class="check-group__title">Website Giving Only</p>
+            {{ mixins.radio(null, 'radio_simple', 'name=fundraising checked') }}
+            <p>Integrated with your merchant provider</p>
+            <p><strong>$25/month</strong></p>
+            <p class="check-group__link"><a href="#"><small>Read More</small></a></p>
           </div>
         </div>
       </div>
-    </div>
-    <!-- END tile -->
+      <!-- END tile -->
 
-    <!-- BEGIN tile -->
-    <div class="tile tile_dark tile_with-pic">
-      <div class="tile__head">
-        <h2 class="title">Best-practices Fundraising Solution</h2>
-        <div class="hint">{{ mixins.icon('hint') }}</div>
-      </div>
-      <div class="l-row">
-        <div class="l-cell check-group">
-          <p class="check-group__title">Full Package</p>
-          {{ mixins.radio(null, 'radio_simple', 'name=fundraising') }}
-          <p>Only 1.25% of processed donations</p>
-          <p><strong class="text-green">Free</strong></p>
-          <p class="check-group__link"><a href="#"><small>Read More</small></a></p>
+      <!-- BEGIN tile -->
+      <div class="tile">
+        <div class="tile__head">
+          <h2 class="title">Modules that are included</h2>
+          <small class="tile__small-text">
+            Simply uncheck unwanted modules (you’ll be able to add them later as well).
+            You will be able to rename modules as you want.
+          </small>
+          {{ mixins.checkbox('Select All', 'tile__check-all') }}
         </div>
-
-        <div class="l-cell check-group">
-          <p class="check-group__title">Full Package</p>
-          {{ mixins.radio(null, 'radio_simple', 'name=fundraising') }}
-          <p>Integrated with your merchant provider</p>
-          <p><strong>$50/month</strong></p>
-          <p class="check-group__link"><a href="#"><small>Read More</small></a></p>
-        </div>
-
-        <div class="l-cell check-group">
-          <p class="check-group__title">Mobile Giving Only</p>
-          {{ mixins.radio(null, 'radio_simple', 'name=fundraising') }}
-          <p>Integrated with your merchant provider</p>
-          <p><strong>$25/month</strong></p>
-          <p class="check-group__link"><a href="#"><small>Read More</small></a></p>
-        </div>
-
-        <div class="l-cell check-group">
-          <p class="check-group__title">Website Giving Only</p>
-          {{ mixins.radio(null, 'radio_simple', 'name=fundraising checked') }}
-          <p>Integrated with your merchant provider</p>
-          <p><strong>$25/month</strong></p>
-          <p class="check-group__link"><a href="#"><small>Read More</small></a></p>
-        </div>
-      </div>
-    </div>
-    <!-- END tile -->
-
-    <!-- BEGIN tile -->
-    <div class="tile">
-      <div class="tile__head">
-        <h2 class="title">Modules that are included</h2>
-        <small class="tile__small-text">
-          Simply uncheck unwanted modules (you’ll be able to add them later as well).
-          You will be able to rename modules as you want.
-        </small>
-        {{ mixins.checkbox('Select All', 'tile__check-all') }}
-      </div>
-      <div class="tile__body">
-        <div class="l-multicolumn">
-          {% for col in checkboxes %}
-            <ul class="l-col check-list">
-            {% for check in col %}
-              <li class="check-list__item">
-                {{ mixins.checkbox(check) }}
-              </li>
+        <div class="tile__body">
+          <div class="l-multicolumn">
+            {% for col in checkboxes %}
+              <ul class="l-col check-list">
+                {% for check in col %}
+                  <li class="check-list__item">
+                    {{ mixins.checkbox(check) }}
+                  </li>
+                {% endfor %}
+              </ul>
             {% endfor %}
-            </ul>
-          {% endfor %}
+          </div>
+        </div>
+        <div class="tile__footer">
+          <small class="tile__small-text footnote">
+            If you can’t find a module that you want, you can simply use “Links” module
+            thank you can link to any web page by simply adding icon and URL. You can get
+            as many “Links” modules as you want.
+          </small>
         </div>
       </div>
-      <div class="tile__footer">
-        <small class="tile__small-text footnote">
-          If you can’t find a module that you want, you can simply use “Links” module
-          thank you can link to any web page by simply adding icon and URL. You can get
-          as many “Links” modules as you want.
-        </small>
-      </div>
-    </div>
-    <!-- END tile -->
+      <!-- END tile -->
 
-    <!-- BEGIN tile -->
-    <div class="tile">
-      <div class="tile__head">
-        <h2 class="title">Additional Modules</h2>
-        {{ mixins.checkbox('Select All', 'tile__check-all') }}
-      </div>
-      <div class="tile__body">
-        <div class="l-multicolumn">
-          {% for col in checkboxes2 %}
+      <!-- BEGIN tile -->
+      <div class="tile">
+        <div class="tile__head">
+          <h2 class="title">Additional Modules</h2>
+          {{ mixins.checkbox('Select All', 'tile__check-all') }}
+        </div>
+        <div class="tile__body">
+          <div class="l-multicolumn">
+            {% for col in checkboxes2 %}
+              <ul class="l-col check-list">
+                {% for check in col %}
+                  <li class="check-list__item">
+                    {{ mixins.checkbox(check) }}
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endfor %}
             <ul class="l-col check-list">
-              {% for check in col %}
-                <li class="check-list__item">
-                  {{ mixins.checkbox(check) }}
-                </li>
-              {% endfor %}
+              <li class="check-list__item">
+                {{ mixins.checkbox('Links') }}
+                <div class="hint">{{ mixins.icon('hint') }}</div>
+                <div class="amount-select dropdown">
+                  <button class="select-trigger select-trigger_simple" data-toggle="dropdown">
+                    <span>1</span> {{ mixins.icon('chevron-down') }}
+                  </button>
+                </div>
+              </li>
+              <li class="check-list__item">
+                {{ mixins.checkbox('A Module Clone') }}
+                <div class="hint">{{ mixins.icon('hint') }}</div>
+                <div class="amount-select dropdown">
+                  <button class="select-trigger select-trigger_simple" data-toggle="dropdown">
+                    <span>1</span> {{ mixins.icon('chevron-down') }}
+                  </button>
+                </div>
+              </li>
             </ul>
-          {% endfor %}
-          <ul class="l-col check-list">
-            <li class="check-list__item">
-              {{ mixins.checkbox('Links') }}
-              <div class="hint">{{ mixins.icon('hint') }}</div>
-              <div class="amount-select dropdown">
-                <button class="select-trigger select-trigger_simple" data-toggle="dropdown">
-                  <span>1</span> {{ mixins.icon('chevron-down') }}
-                </button>
-              </div>
-            </li>
-            <li class="check-list__item">
-              {{ mixins.checkbox('A Module Clone') }}
-              <div class="hint">{{ mixins.icon('hint') }}</div>
-              <div class="amount-select dropdown">
-                <button class="select-trigger select-trigger_simple" data-toggle="dropdown">
-                  <span>1</span> {{ mixins.icon('chevron-down') }}
-                </button>
-              </div>
-            </li>
-          </ul>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- END tile -->
+      <!-- END tile -->
 
-    <!-- BEGIN tile -->
-    <div class="tile">
-      <div class="tile__head">
-        <h2>Additional Options</h2>
+      <!-- BEGIN tile -->
+      <div class="tile">
+        <div class="tile__head">
+          <h2>Additional Options</h2>
+        </div>
+        <div class="l-row">
+          <div class="l-cell check-group">
+            {{ mixins.checkbox(null, 'check_simple', 'checked') }}
+            <p>Marketing Package</p>
+            <p><strong>$50/one-time</strong></p>
+          </div>
+          <div class="l-cell check-group">
+            {{ mixins.checkbox(null, 'check_simple') }}
+            <p>iBeacons Support</p>
+            <p><strong>$20/month</strong></p>
+          </div>
+          <div class="l-cell check-group">
+            {{ mixins.checkbox(null, 'check_simple') }}
+            <p>ChMS Integration</p>
+            <p><strong>$20/month</strong></p>
+          </div>
+        </div>
       </div>
-      <div class="l-row">
-        <div class="l-cell check-group">
-          {{ mixins.checkbox(null, 'check_simple', 'checked') }}
-          <p>Marketing Package</p>
-          <p><strong>$50/one-time</strong></p>
-        </div>
-        <div class="l-cell check-group">
-          {{ mixins.checkbox(null, 'check_simple') }}
-          <p>iBeacons Support</p>
-          <p><strong>$20/month</strong></p>
-        </div>
-        <div class="l-cell check-group">
-          {{ mixins.checkbox(null, 'check_simple') }}
-          <p>ChMS Integration</p>
-          <p><strong>$20/month</strong></p>
-        </div>
-      </div>
+      <!-- END tile -->
     </div>
-    <!-- END tile -->
 
+  </div>
+
+  <div class="l-page-sidebar">
     {% include 'partials/_sidebar.html' %}
   </div>
+
 
 {% endblock %}
 

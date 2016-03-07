@@ -1,3 +1,6 @@
+html
+  height: 100%
+
 body
   background: $color-bg-main
   color: $color-text-main
@@ -6,11 +9,57 @@ body
   min-width: $layout-width + 40px
   &.modal-open
     overflow: hidden
-    .content-wrapper
+    .l-content-wrapper
       filter: blur(4px)
+  &.page-with-sidebar
+    height: 100%
+    overflow: hidden
+    min-width: $layout-width + 40 + 300px
+    +clr
+    .l-content-wrapper
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      min-width: $layout-width + 40 + 300px
+  &.sidebar-active
+    .l-page-content
+      right: 300px
+    .l-page-sidebar
+      transform: translateX(0)
 
-.content-wrapper
+.l-content-wrapper
   transition: filter 0.3s ease
+
+.l-page-content,
+.l-page-sidebar
+  position: absolute
+  top: 0
+  bottom: 0
+  overflow: auto
+  +smooth-scroll
+  //+scrollbar
+  //  width: 4px
+  //  height: 4px
+  //+scrollbar-track-piece
+  //  background: rgba($color-border, 0.2)
+  //+scrollbar-thumb
+  //  background: rgba($color-border, 0.7)
+  //  border-radius: 2px
+.l-page-content
+  z-index: 0
+  left: 0
+  right: 0
+  transition: all 0.5s ease
+.l-page-sidebar
+  display: none
+  z-index: 1
+  right: 0
+  width: 300px
+  transform: translateX(100%)
+  background: $color-sidebar-bg
+  transition: all 0.5s ease
 
 b, strong
   +f(b)
@@ -49,9 +98,3 @@ a
 
 .icon
   fill: currentColor
-
-.text-important
-  color: $color-text-important
-
-.text-green
-  color: $color-text-green

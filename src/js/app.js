@@ -1,5 +1,74 @@
 $(function() {
 
+    // show sidebar
+    (function() {
+        var wrapper = $('.l-content-wrapper');
+        var sidebar = $('.l-page-sidebar');
+        var body = $('body');
+        var btn = $('#btn-confirm');
+        var stepOne = $('#step-one');
+        var stepTwo = $('#step-two');
+        var tiles = stepTwo.find('> .tile, > .tile-group');
+        var duration = 500;
+        var delay = 200;
+
+        stepTwo.hide();
+        tiles.css({
+            transform: 'translateY(100px)',
+            transition: 'all 0.5s ease',
+            opacity: 0
+        });
+
+        btn.on('click', showStepTwo);
+
+        function showStepTwo() {
+            wrapper.css('overflow', 'hidden');
+            wrapper.find('.l-page-content').animate({scrollTop: 0}, duration);
+            sidebar.show();
+            setTimeout(function() {
+                body.toggleClass('sidebar-active');
+            }, 0);
+            stepOne.add('.header .btn-round').fadeOut(500, function () {
+                stepTwo.show(animateTiles);
+                wrapper.css('overflow', '');
+            });
+        }
+
+        function animateTiles() {
+            tiles.each(function (i, el) {
+                var tile = $(el);
+                setTimeout(function () {
+                    tile.css({
+                        transform: '',
+                        opacity: ''
+                    });
+                    setTimeout(function () {
+                        tile.css({
+                            transition: ''
+                        });
+                    }, duration);
+                }, i * delay);
+            });
+        }
+    })();
+
+    // app design block
+    (function() {
+        var container = $('#app-design');
+        var panel = container.find('.tile-panel');
+        var radio = container.find('.tile input[type="radio"]');
+        radio.on('change', function(e) {
+            var value = $(this).val();
+            var visible = panel.is(':visible');
+            if (value !== '1' && !visible) {
+                panel.slideDown();
+            } else if (value === '1' && visible) {
+                panel.slideUp();
+            }
+        });
+        panel.slideUp();
+    })();
+
     // fields
     $('.field__input')
         .on('focus', function(e) {
@@ -30,104 +99,106 @@ $(function() {
     });
 
     // attendance slider
-    var container = $('.attendance');
-    var slider = container.find('.slider');
-    var tooltip = container.find('.slider-tooltip').remove();
-    var displayedValue = container.find('.attendance__value');
-    var currentBpIndex;
-    var CLASS_TEST = /bp-\d/g;
+    (function() {
+        var container = $('.attendance');
+        var slider = container.find('.slider');
+        var tooltip = container.find('.slider-tooltip').remove();
+        var displayedValue = container.find('.attendance__value');
+        var currentBpIndex;
+        var CLASS_TEST = /bp-\d/g;
 
-    var values = [50, 100, 250, 500, 1000, 3000, 5000, 10000, 25000, 30000];
-    var breakpoints = [50, 250, 1000, 5000];
+        var values = [50, 100, 250, 500, 1000, 3000, 5000, 10000, 25000, 30000];
+        var breakpoints = [50, 250, 1000, 5000];
 
-    container.find('.slider-points').html(renderDots(values));
+        container.find('.slider-points').html(renderDots(values));
 
-    noUiSlider.create(slider[0], {
-        start: values[0],
-        range: createRange(values)
-    });
-
-    slider.find('.noUi-handle-lower').append(tooltip);
-
-    slider[0].noUiSlider.on('change', onSliderChange);
-    slider[0].noUiSlider.on('set', onSliderChange);
-    slider[0].noUiSlider.set(values[0]);
-
-    function onSliderChange(strVal, handle, val, tap, positions) {
-        var value = val[handle];
-        var newBpIndex = getBpIndex(value);
-
-        displayedValue.text(formatValueSting(val[handle], values));
-
-        if (newBpIndex !== currentBpIndex) {
-            tooltip
-                .removeClass(function(i, className) {
-                    var matched = className.match(CLASS_TEST);
-                    if (matched) return matched.join(' ');
-                    return '';
-                })
-                .addClass('bp-' + (newBpIndex + 1));
-        }
-    }
-
-    function createRange(values) {
-        var range = {};
-        var step = Math.round(100 / (values.length - 1) * 100) / 100;
-        values.forEach(function(val, i) {
-            switch (i) {
-                case 0:
-                    range.min = [val, values[i + 1] - val];
-                    break;
-                case values.length - 1:
-                    range.max = [val];
-                    break;
-                default:
-                    range[i * step + '%'] = [val, values[i + 1] - val];
-            }
+        noUiSlider.create(slider[0], {
+            start: values[0],
+            range: createRange(values)
         });
-        return range;
-    }
 
-    function renderDots(values) {
-        var step = Math.round(100 / (values.length - 1) * 100) / 100;
+        slider.find('.noUi-handle-lower').append(tooltip);
 
-        return values.map(function(val, i) {
-            return (
-                '<div class="slider-point" style="left: ' + (step * i) + '%">'
+        slider[0].noUiSlider.on('change', onSliderChange);
+        slider[0].noUiSlider.on('set', onSliderChange);
+        slider[0].noUiSlider.set(values[0]);
+
+        function onSliderChange(strVal, handle, val, tap, positions) {
+            var value = val[handle];
+            var newBpIndex = getBpIndex(value);
+
+            displayedValue.text(formatValueSting(val[handle], values));
+
+            if (newBpIndex !== currentBpIndex) {
+                tooltip
+                    .removeClass(function(i, className) {
+                        var matched = className.match(CLASS_TEST);
+                        if (matched) return matched.join(' ');
+                        return '';
+                    })
+                    .addClass('bp-' + (newBpIndex + 1));
+            }
+        }
+
+        function createRange(values) {
+            var range = {};
+            var step = Math.round(100 / (values.length - 1) * 100) / 100;
+            values.forEach(function(val, i) {
+                switch (i) {
+                    case 0:
+                        range.min = [val, values[i + 1] - val];
+                        break;
+                    case values.length - 1:
+                        range.max = [val];
+                        break;
+                    default:
+                        range[i * step + '%'] = [val, values[i + 1] - val];
+                }
+            });
+            return range;
+        }
+
+        function renderDots(values) {
+            var step = Math.round(100 / (values.length - 1) * 100) / 100;
+
+            return values.map(function(val, i) {
+                return (
+                    '<div class="slider-point" style="left: ' + (step * i) + '%">'
                     + formatValueSting(val, values)
-                + '</div>'
-            );
-        }).join('');
-    }
-
-    function formatValueSting(value, array) {
-        var index = array.indexOf(value);
-        switch (index) {
-            case -1:
-                return formatNumber(value);
-            case array.length - 1:
-                return formatNumber(array[index - 1]) + '+';
-            default:
-                return formatNumber(array[index - 1] || 0) + '-' + formatNumber(value);
+                    + '</div>'
+                );
+            }).join('');
         }
-    }
 
-    function formatNumber(str) {
-        if (typeof str !== 'string') str = str.toString();
-        return str
-            .split('')
-            .reverse()
-            .map(function(el, i) {
-                return (i === 0 || i % 3) ? el : el + ',';
-            })
-            .reverse()
-            .join('');
-    }
-
-    function getBpIndex(val) {
-        for (var i = 0; i < breakpoints.length; i++) {
-            if (val >= breakpoints[i] && val < (breakpoints[i + 1] || Infinity)) return i;
+        function formatValueSting(value, array) {
+            var index = array.indexOf(value);
+            switch (index) {
+                case -1:
+                    return formatNumber(value);
+                case array.length - 1:
+                    return formatNumber(array[index - 1]) + '+';
+                default:
+                    return formatNumber(array[index - 1] || 0) + '-' + formatNumber(value);
+            }
         }
-        return 0;
-    }
+
+        function formatNumber(str) {
+            if (typeof str !== 'string') str = str.toString();
+            return str
+                .split('')
+                .reverse()
+                .map(function(el, i) {
+                    return (i === 0 || i % 3) ? el : el + ',';
+                })
+                .reverse()
+                .join('');
+        }
+
+        function getBpIndex(val) {
+            for (var i = 0; i < breakpoints.length; i++) {
+                if (val >= breakpoints[i] && val < (breakpoints[i + 1] || Infinity)) return i;
+            }
+            return 0;
+        }
+    })();
 });

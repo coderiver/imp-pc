@@ -13,10 +13,10 @@
     <script type="text/javascript" src="js/app.js" defer></script>
     <!-- END scripts -->
   </head>
-  <body>
+  <body {% if page_class %}class="{{ page_class }}"{% endif %}>
 
     <!-- BEGIN content -->
-    <div class="content-wrapper">
+    <div class="l-content-wrapper">
       {% block content %}{% endblock %}
     </div>
     <!-- END content -->
