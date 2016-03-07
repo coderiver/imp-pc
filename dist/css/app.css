@@ -67,48 +67,28 @@ table {
 
 @font-face {
   font-family: "myriad-set-pro_bold";
-  src: url("../fonts/myriad-set-pro_bold.eot");
-  src: url("../fonts/myriad-set-pro_bold.eot?#iefix") format("embedded-opentype"), url("../fonts/myriad-set-pro_bold.woff2") format("woff2"), url("../fonts/myriad-set-pro_bold.woff") format("woff"), url("../fonts/myriad-set-pro_bold.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "myriad-set-pro_medium";
-  src: url("../fonts/myriad-set-pro_medium.eot");
-  src: url("../fonts/myriad-set-pro_medium.eot?#iefix") format("embedded-opentype"), url("../fonts/myriad-set-pro_medium.woff2") format("woff2"), url("../fonts/myriad-set-pro_medium.woff") format("woff"), url("../fonts/myriad-set-pro_medium.ttf") format("truetype");
+  src: url("../fonts/myriad-set-pro_bold.woff2"), url("../fonts/myriad-set-pro_bold.woff"), url("../fonts/myriad-set-pro_bold.ttf");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "myriad-set-pro_semibold";
-  src: url("../fonts/myriad-set-pro_semibold.eot");
-  src: url("../fonts/myriad-set-pro_semibold.eot?#iefix") format("embedded-opentype"), url("../fonts/myriad-set-pro_semibold.woff2") format("woff2"), url("../fonts/myriad-set-pro_semibold.woff") format("woff"), url("../fonts/myriad-set-pro_semibold.ttf") format("truetype");
+  src: url("../fonts/myriad-set-pro_semibold.woff2"), url("../fonts/myriad-set-pro_semibold.woff"), url("../fonts/myriad-set-pro_semibold.ttf");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "myriad-set-pro_text";
-  src: url("../fonts/myriad-set-pro_text.eot");
-  src: url("../fonts/myriad-set-pro_text.eot?#iefix") format("embedded-opentype"), url("../fonts/myriad-set-pro_text.woff2") format("woff2"), url("../fonts/myriad-set-pro_text.woff") format("woff"), url("../fonts/myriad-set-pro_text.ttf") format("truetype");
+  src: url("../fonts/myriad-set-pro_text.woff2"), url("../fonts/myriad-set-pro_text.woff"), url("../fonts/myriad-set-pro_text.ttf");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "myriad-set-pro_thin";
-  src: url("../fonts/myriad-set-pro_thin.eot");
-  src: url("../fonts/myriad-set-pro_thin.eot?#iefix") format("embedded-opentype"), url("../fonts/myriad-set-pro_thin.woff2") format("woff2"), url("../fonts/myriad-set-pro_thin.woff") format("woff"), url("../fonts/myriad-set-pro_thin.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "myriad-set-pro_ultralight";
-  src: url("../fonts/myriad-set-pro_ultralight.eot");
-  src: url("../fonts/myriad-set-pro_ultralight.eot?#iefix") format("embedded-opentype"), url("../fonts/myriad-set-pro_ultralight.woff2") format("woff2"), url("../fonts/myriad-set-pro_ultralight.woff") format("woff"), url("../fonts/myriad-set-pro_ultralight.ttf") format("truetype");
+  src: url("../fonts/myriad-set-pro_thin.woff2"), url("../fonts/myriad-set-pro_thin.woff"), url("../fonts/myriad-set-pro_thin.ttf");
   font-weight: normal;
   font-style: normal;
 }
@@ -248,7 +228,6 @@ body.modal-open .l-content-wrapper {
 
 body.page-with-sidebar {
   height: 100%;
-  overflow: hidden;
   min-width: 1240px;
   *zoom: 1;
 }
@@ -1057,6 +1036,10 @@ a:not(:hover) {
   display: inline-block;
 }
 
+.amount-select .dropdown-menu {
+  min-width: 0;
+}
+
 .btn-round {
   position: relative;
   height: 30px;
@@ -1166,7 +1149,7 @@ a:not(:hover) {
   justify-content: center;
 }
 
-.tab-group__btn {
+.tab-group__item {
   display: inline-block;
   vertical-align: top;
   height: 46px;
@@ -1184,19 +1167,52 @@ a:not(:hover) {
   transition: all 0.2s ease;
 }
 
-.tab-group__btn + .tab-group__btn {
+.tab-group__item + .tab-group__item {
   margin-left: -1px;
 }
 
-.tab-group__btn:hover {
+.tab-group__item:hover {
   color: #546475;
 }
 
-.tab-group__btn.is-active {
+.tab-group__item.active {
   border-color: #979797;
   border-bottom-color: rgba(255, 255, 255, 0);
   color: #4A90E2;
   cursor: default;
+}
+
+.tab-group__btn {
+  display: block;
+  background: none;
+  color: inherit;
+  height: 100%;
+  width: 100%;
+  font-family: "myriad-set-pro_bold", sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.tab-content-group {
+  background: #4A90E2;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.tab-content.fade {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tab-content.in {
+  opacity: 1;
 }
 
 .cta-btn {
@@ -1385,6 +1401,7 @@ a:not(:hover) {
   font-size: 17px;
   color: inherit;
   transition: color 0.2s ease;
+  cursor: pointer;
 }
 
 .demo-btn:hover {
@@ -1587,9 +1604,15 @@ a:not(:hover) {
 
 .check-group .demo-btn {
   position: relative;
-  width: 0;
+  width: 1px;
   top: 2px;
   left: 18px;
+}
+
+.check-group .hint {
+  position: relative;
+  width: 1px;
+  padding-right: 0;
 }
 
 .check-group.l-cell {
@@ -1692,6 +1715,103 @@ a:not(:hover) {
   right: 0;
   padding: 0 25px;
   font-size: 14px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  z-index: 2;
+  top: 100%;
+  left: 0;
+  margin-top: 2px;
+  box-sizing: border-box;
+  background: #FFF;
+  border: 1px solid #979797;
+  border-radius: 3px;
+  width: 100%;
+  max-width: 300px;
+  min-width: 160px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  -webkit-transform: scale(1, 0);
+  -ms-transform: scale(1, 0);
+  transform: scale(1, 0);
+  -webkit-transform-origin: center top;
+  -ms-transform-origin: center top;
+  transform-origin: center top;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.dropdown-menu_double {
+  *zoom: 1;
+}
+
+.dropdown-menu_double:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.dropdown-menu_double:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 50%;
+  border-left: 1px solid #979797;
+}
+
+.dropdown-menu_double .dropdown-menu__list {
+  width: 50%;
+  float: left;
+}
+
+.dropdown-menu_date {
+  max-width: 160px;
+  height: 210px;
+  text-align: center;
+}
+
+.open .dropdown-menu {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  transform: scale(1, 1);
+}
+
+.dropdown-menu__list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  overflow: auto;
+  max-height: 240px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.dropdown-menu__item {
+  background: none;
+  height: 30px;
+  line-height: 30px;
+  white-space: nowrap;
+  width: 100%;
+  padding: 0 10px;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  transition-property: background-color, color;
+  font-size: 16px;
+  cursor: default;
+  color: #546475;
+}
+
+.dropdown-menu__item:hover, .dropdown-menu__item.is-selected {
+  background: #4A90E2;
+  color: #FFF;
 }
 
 .field__label {

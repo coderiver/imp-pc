@@ -66,16 +66,30 @@ checkboxes2:
             <span>Faith-Based</span>
             {{ mixins.icon('chevron-down') }}
           </button>
+          <div class="dropdown-menu">
+            <ul class="dropdown-menu__list">
+              <li class="dropdown-menu__item">Faith-Based</li>
+              <li class="dropdown-menu__item">Faith-Based 2</li>
+              <li class="dropdown-menu__item">Faith-Based 3</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="tab-group">
-          <button class="tab-group__btn is-active">Church</button>
-          <button class="tab-group__btn">Ministry</button>
-        </div>
+        <ul class="tab-group">
+          <li class="tab-group__item active">
+            <button class="tab-group__btn" data-toggle="tab" data-target="#tab-1">Church</button>
+          </li>
+          <li class="tab-group__item">
+            <button class="tab-group__btn" data-toggle="tab" data-target="#tab-2">Ministry</button>
+          </li>
+        </ul>
       </div>
 
       <div class="tab-content-group">
-        <div class="tab-content">
+        <div class="tab-content fade active in" id="tab-1">
+          {% include "partials/_attendance.html" %}
+        </div>
+        <div class="tab-content fade" id="tab-2">
           {% include "partials/_attendance.html" %}
         </div>
       </div>
@@ -129,7 +143,11 @@ checkboxes2:
             </div>
             <div class="l-cell check-group">
               {{ mixins.radio(null, 'radio_simple', 'name=appicon value=3') }}
-              <p>Your Designer or one of our Partners will&nbsp;create design for your app</p>
+              <p>
+                Your Designer or one of our Partners&nbsp;
+                <span class="hint">{{ mixins.icon('hint') }}</span>
+                will&nbsp;create design for your app
+              </p>
               <p><small>We will provide specification</small></p>
             </div>
           </div>
@@ -141,7 +159,7 @@ checkboxes2:
               {{ mixins.radio(null, 'radio_simple', 'name=appicon_extend checked') }}
               <p>
                 Standard App Design Layouts
-                <button class="demo-btn">{{ mixins.icon('demo') }}</button>
+                <span class="demo-btn" data-toggle="modal" data-target="#modal-callback">{{ mixins.icon('demo') }}</span>
               </p>
               <p><strong>Included</strong></p>
             </div>
@@ -149,7 +167,7 @@ checkboxes2:
               {{ mixins.radio(null, 'radio_simple', 'name=appicon_extend') }}
               <p>
                 Premium App Design Layouts
-                <button class="demo-btn">{{ mixins.icon('demo') }}</button>
+                <span class="demo-btn" data-toggle="modal" data-target="#modal-callback">{{ mixins.icon('demo') }}</span>
               </p>
               <p><strong>$99 One-time fee</strong></p>
             </div>
@@ -258,6 +276,14 @@ checkboxes2:
                   <button class="select-trigger select-trigger_simple" data-toggle="dropdown">
                     <span>1</span> {{ mixins.icon('chevron-down') }}
                   </button>
+                  <div class="dropdown-menu">
+                    <ul class="dropdown-menu__list">
+                      <li class="dropdown-menu__item">1</li>
+                      <li class="dropdown-menu__item">2</li>
+                      <li class="dropdown-menu__item">3</li>
+                      <li class="dropdown-menu__item">4</li>
+                    </ul>
+                  </div>
                 </div>
               </li>
               <li class="check-list__item">
@@ -267,6 +293,14 @@ checkboxes2:
                   <button class="select-trigger select-trigger_simple" data-toggle="dropdown">
                     <span>1</span> {{ mixins.icon('chevron-down') }}
                   </button>
+                  <div class="dropdown-menu">
+                    <ul class="dropdown-menu__list">
+                      <li class="dropdown-menu__item">1</li>
+                      <li class="dropdown-menu__item">2</li>
+                      <li class="dropdown-menu__item">3</li>
+                      <li class="dropdown-menu__item">4</li>
+                    </ul>
+                  </div>
                 </div>
               </li>
             </ul>
