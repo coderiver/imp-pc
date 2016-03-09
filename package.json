@@ -6,7 +6,10 @@
     "build": "gulp build --production",
     "start": "gulp"
   },
-  "authors": "buschidos <sergey.snjozyk@gmail.com>",
+  "authors": [
+    "buschidos <sergey.snjozyk@gmail.com>",
+    "coderiver <html@coderiver.com.ua>"
+  ],
   "devDependencies": {
     "autoprefixer": "^6.3.3",
     "browser-sync": "^2.10.0",
@@ -34,8 +37,5 @@
     "lodash": "^4.3.0",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5"
-  },
-  "dependencies": {
-    "svgxuse": "^1.1.10"
   }
 }
