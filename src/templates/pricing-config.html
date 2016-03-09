@@ -95,7 +95,7 @@ checkboxes2:
       </div>
 
       <div class="align-center">
-        <button class="btn-icon btn-icon_lg" id="btn-confirm">
+        <button class="btn-icon btn-icon_lg is-hover" id="btn-confirm">
           {{ mixins.icon('btn-ok') }}
           <span>Confirm</span>
         </button>
@@ -131,18 +131,18 @@ checkboxes2:
 
           <div class="l-row">
             <div class="l-cell check-group">
-              {{ mixins.radio(null, 'radio_simple', 'name=appicon checked value=1') }}
+              {{ mixins.radio(null, 'radio_simple', 'name=appicon') }}
               <p>We will create custom design for you</p>
               <p><strong>$250 One-time fee</strong></p>
               <p><small class="text-important">Free – Limited Time Offer</small></p>
             </div>
             <div class="l-cell check-group">
-              {{ mixins.radio(null, 'radio_simple', 'name=appicon value=2') }}
+              {{ mixins.radio(null, 'radio_simple', 'name=appicon') }}
               <p>Use our template-based designs</p>
               <p><strong>Free</strong></p>
             </div>
             <div class="l-cell check-group">
-              {{ mixins.radio(null, 'radio_simple', 'name=appicon value=3') }}
+              {{ mixins.radio(null, 'radio_simple', 'name=appicon') }}
               <p>
                 Your Designer or one of our Partners&nbsp;
                 <span class="hint">{{ mixins.icon('hint') }}</span>
@@ -177,42 +177,42 @@ checkboxes2:
       <!-- END tile -->
 
       <!-- BEGIN tile -->
-      <div class="tile tile_dark tile_with-pic">
+      <div class="tile tile_with-pic tile_white-borders">
         <div class="tile__head">
           <h2 class="title">Best-practices Fundraising Solution</h2>
           <div class="hint">{{ mixins.icon('hint') }}</div>
         </div>
         <div class="l-row">
-          <div class="l-cell check-group">
+          <div class="l-cell check-group check-group_color">
             <p class="check-group__title">Full Package</p>
             {{ mixins.radio(null, 'radio_simple', 'name=fundraising') }}
             <p>Only 1.25% of processed donations</p>
             <p><strong class="text-green">Free</strong></p>
-            <p class="check-group__link"><a href="#"><small>Read More</small></a></p>
+            <small class="check-group__link"><a href="#">Read More</a></small>
           </div>
 
-          <div class="l-cell check-group">
+          <div class="l-cell check-group check-group_color">
             <p class="check-group__title">Full Package</p>
             {{ mixins.radio(null, 'radio_simple', 'name=fundraising') }}
             <p>Integrated with your merchant provider</p>
             <p><strong>$50/month</strong></p>
-            <p class="check-group__link"><a href="#"><small>Read More</small></a></p>
+            <small class="check-group__link"><a href="#">Read More</a></small>
           </div>
 
-          <div class="l-cell check-group">
+          <div class="l-cell check-group check-group_color">
             <p class="check-group__title">Mobile Giving Only</p>
             {{ mixins.radio(null, 'radio_simple', 'name=fundraising') }}
             <p>Integrated with your merchant provider</p>
             <p><strong>$25/month</strong></p>
-            <p class="check-group__link"><a href="#"><small>Read More</small></a></p>
+            <small class="check-group__link"><a href="#">Read More</a></small>
           </div>
 
-          <div class="l-cell check-group">
+          <div class="l-cell check-group check-group_color">
             <p class="check-group__title">Website Giving Only</p>
             {{ mixins.radio(null, 'radio_simple', 'name=fundraising checked') }}
             <p>Integrated with your merchant provider</p>
             <p><strong>$25/month</strong></p>
-            <p class="check-group__link"><a href="#"><small>Read More</small></a></p>
+            <small class="check-group__link"><a href="#">Read More</a></small>
           </div>
         </div>
       </div>
@@ -254,7 +254,11 @@ checkboxes2:
       <!-- BEGIN tile -->
       <div class="tile">
         <div class="tile__head">
-          <h2 class="title">Additional Modules</h2>
+          <div class="l-row l-row_align-center">
+            <div class="l-cell"><h2 class="title">Additional Modules</h2></div>
+            <div class="l-cell align-center"><strong>$5/month per each additional module</strong></div>
+            <div class="l-cell">&nbsp;</div>
+          </div>
           {{ mixins.checkbox('Select All', 'tile__check-all') }}
         </div>
         <div class="tile__body">

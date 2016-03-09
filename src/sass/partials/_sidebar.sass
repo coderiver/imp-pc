@@ -46,11 +46,11 @@
   color: white
 
 .payment__tab-content
-  padding: 35px 20px 20px
+  padding: 35px 10px 20px
   display: none
   text-align: center
   small
-    font-size: 12px
+    font-size: 13px
     opacity: 0.9
   .payment-field
     &:not(:first-child)
@@ -85,7 +85,9 @@
   color: inherit
   small
     display: block
-    +f(t, 12)
+    margin-top: 5px
+    height: 2px
+    +f(t, 13)
     color: $color-blue
     +trans(color)
 
@@ -119,7 +121,7 @@
       opacity: 1
 
 .payment-field__footer
-  font-size: 12px
+  font-size: 13px
 
 .payment-field__currency
   position: absolute

@@ -90,16 +90,7 @@
                     <div class="attendance__slider">
                       <div class="slider"></div>
                       <ul class="slider-points">
-                        <li class="slider-point">0-50</li>
-                        <li class="slider-point">50-100</li>
-                        <li class="slider-point">100-250</li>
-                        <li class="slider-point">250-500</li>
-                        <li class="slider-point">500-1,000</li>
-                        <li class="slider-point">1,000-3,000</li>
-                        <li class="slider-point">3,000-5,000</li>
-                        <li class="slider-point">5,000-10,000</li>
-                        <li class="slider-point">10,000-25,000</li>
-                        <li class="slider-point">25,000+</li>
+
                       </ul>
                       <div class="slider-tooltip">
                         <svg class="icon icon-man">
@@ -140,16 +131,7 @@
                     <div class="attendance__slider">
                       <div class="slider"></div>
                       <ul class="slider-points">
-                        <li class="slider-point">0-50</li>
-                        <li class="slider-point">50-100</li>
-                        <li class="slider-point">100-250</li>
-                        <li class="slider-point">250-500</li>
-                        <li class="slider-point">500-1,000</li>
-                        <li class="slider-point">1,000-3,000</li>
-                        <li class="slider-point">3,000-5,000</li>
-                        <li class="slider-point">5,000-10,000</li>
-                        <li class="slider-point">10,000-25,000</li>
-                        <li class="slider-point">25,000+</li>
+
                       </ul>
                       <div class="slider-tooltip">
                         <svg class="icon icon-man">
@@ -178,7 +160,7 @@
           </div>
 
           <div class="align-center">
-            <button class="btn-icon btn-icon_lg" id="btn-confirm">
+            <button class="btn-icon btn-icon_lg is-hover" id="btn-confirm">
             <svg class="icon icon-btn-ok">
     <use xlink:href="img/sprite.svg#icon-btn-ok"></use>
   </svg>
@@ -232,7 +214,7 @@
               <div class="l-row">
                 <div class="l-cell check-group">
                   <label class="radio radio_simple">
-    <input type="radio" name=appicon checked value=1>
+    <input type="radio" name=appicon>
     <span></span>
   </label>
 
@@ -242,7 +224,7 @@
                 </div>
                 <div class="l-cell check-group">
                   <label class="radio radio_simple">
-    <input type="radio" name=appicon value=2>
+    <input type="radio" name=appicon>
     <span></span>
   </label>
 
@@ -251,7 +233,7 @@
                 </div>
                 <div class="l-cell check-group">
                   <label class="radio radio_simple">
-    <input type="radio" name=appicon value=3>
+    <input type="radio" name=appicon>
     <span></span>
   </label>
 
@@ -305,7 +287,7 @@
           <!-- END tile -->
 
           <!-- BEGIN tile -->
-          <div class="tile tile_dark tile_with-pic">
+          <div class="tile tile_with-pic tile_white-borders">
             <div class="tile__head">
               <h2 class="title">Best-practices Fundraising Solution</h2>
               <div class="hint"> <svg class="icon icon-hint">
@@ -314,7 +296,7 @@
               </div>
             </div>
             <div class="l-row">
-              <div class="l-cell check-group">
+              <div class="l-cell check-group check-group_color">
                 <p class="check-group__title">Full Package</p>
                 <label class="radio radio_simple">
     <input type="radio" name=fundraising>
@@ -323,10 +305,10 @@
 
                 <p>Only 1.25% of processed donations</p>
                 <p><strong class="text-green">Free</strong></p>
-                <p class="check-group__link"><a href="#"><small>Read More</small></a></p>
+                <small class="check-group__link"><a href="#">Read More</a></small>
               </div>
 
-              <div class="l-cell check-group">
+              <div class="l-cell check-group check-group_color">
                 <p class="check-group__title">Full Package</p>
                 <label class="radio radio_simple">
     <input type="radio" name=fundraising>
@@ -335,10 +317,10 @@
 
                 <p>Integrated with your merchant provider</p>
                 <p><strong>$50/month</strong></p>
-                <p class="check-group__link"><a href="#"><small>Read More</small></a></p>
+                <small class="check-group__link"><a href="#">Read More</a></small>
               </div>
 
-              <div class="l-cell check-group">
+              <div class="l-cell check-group check-group_color">
                 <p class="check-group__title">Mobile Giving Only</p>
                 <label class="radio radio_simple">
     <input type="radio" name=fundraising>
@@ -347,10 +329,10 @@
 
                 <p>Integrated with your merchant provider</p>
                 <p><strong>$25/month</strong></p>
-                <p class="check-group__link"><a href="#"><small>Read More</small></a></p>
+                <small class="check-group__link"><a href="#">Read More</a></small>
               </div>
 
-              <div class="l-cell check-group">
+              <div class="l-cell check-group check-group_color">
                 <p class="check-group__title">Website Giving Only</p>
                 <label class="radio radio_simple">
     <input type="radio" name=fundraising checked>
@@ -359,7 +341,7 @@
 
                 <p>Integrated with your merchant provider</p>
                 <p><strong>$25/month</strong></p>
-                <p class="check-group__link"><a href="#"><small>Read More</small></a></p>
+                <small class="check-group__link"><a href="#">Read More</a></small>
               </div>
             </div>
           </div>
@@ -523,7 +505,12 @@
           <!-- BEGIN tile -->
           <div class="tile">
             <div class="tile__head">
-              <h2 class="title">Additional Modules</h2>
+              <div class="l-row l-row_align-center">
+                <div class="l-cell">
+                  <h2 class="title">Additional Modules</h2></div>
+                <div class="l-cell align-center"><strong>$5/month per each additional module</strong></div>
+                <div class="l-cell">&nbsp;</div>
+              </div>
               <label class="check tile__check-all">
     <input type="checkbox">
     <span>Select All</span>
@@ -758,7 +745,7 @@
 
               <ul class="payment__tabs l-row">
                 <li class="payment__tab l-cell active">
-                  <button class="payment__tab-btn" data-toggle="tab" data-target="#monthly-payments">Monthly</button>
+                  <button class="payment__tab-btn" data-toggle="tab" data-target="#monthly-payments">Monthly <small>&nbsp;</small></button>
                 </li>
                 <li class="payment__tab l-cell">
                   <button class="payment__tab-btn" data-toggle="tab" data-target="#annually-payments">Annually <small>10% Off</small></button>

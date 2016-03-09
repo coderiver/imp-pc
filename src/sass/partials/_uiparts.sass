@@ -247,7 +247,8 @@
     margin: 0 auto 15px
     font-size: 50px
   &:hover,
-  &:focus
+  &:focus,
+  &.is-hover
     color: $color-text-main
     .icon
       +trans(fill)
@@ -371,8 +372,13 @@
         width: 140px
         height: 140px
         border-radius: 50%
-        background: $color-tile-dark img-url('illustration2.svg') no-repeat center
+        background: white img-url('illustration2.svg') no-repeat center
         background-size: contain
+  &_white-borders
+    .tile__head
+      border-color: white
+    .l-cell.check-group
+      border-color: white
 
 .tile__head
   position: relative
@@ -394,7 +400,7 @@
 .tile__small-text
   display: block
   color: rgba($color-text-main, 0.6)
-  font-size: 12px
+  font-size: 13px
   line-height: 1.1
 
 .tile__check-all
@@ -419,7 +425,7 @@
     &:not(:first-child)
       margin-top: 5px
   small
-    font-size: 12px
+    font-size: 13px
   .radio_simple
     margin-bottom: 10px
   .demo-btn
@@ -442,12 +448,18 @@
     .check-group__link
       opacity: 1
       visibility: visible
+  &_color
+    background: rgba(#50E3C2, 0.1)
+    &:hover
+      background: rgba(#50E3C2, 0.2)
 
 .check-group__title
   +f(b, 17)
   margin-bottom: 10px
 
 .check-group__link
+  display: block
+  margin-top: 20px
   opacity: 0
   visibility: hidden
   +trans

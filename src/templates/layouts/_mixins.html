@@ -11,6 +11,13 @@
   </label>
 {% endmacro %}
 
+{% macro radioDiv(text, classes, attr) %}
+  <div class="radio{{ ' ' + classes if classes }}">
+    <input type="radio"{{ ' ' + attr if attr }}>
+    <span>{{ text | safe }}</span>
+  </div>
+{% endmacro %}
+
 {% macro checkbox(text, classes, attr) %}
   <label class="check{{ ' ' + classes if classes }}">
     <input type="checkbox"{{ ' ' + attr if attr }}>
