@@ -114,15 +114,11 @@ $(function() {
          */
         function AttendanceSlider(container, options) {
             this.container             = (container instanceof $) ? container : $(container);
-            this.slider                = this.container.find('.slider');
-            this.tooltip               = this.container.find('.slider-tooltip').remove();
-            this.displayedValue        = this.container.find('.attendance__value');
-            this.displayedValueText    = this.displayedValue.find('.attendance__value-text');
             this.values                = options.values;
             this.breakpoints           = options.breakpoints;
             this.initValue             = (options.initValue == null) ? this.values[0] : options.initValue;
             this.currentBpIndex        = null;
-            this.prevValue             = null;
+            this.currentValue          = null;
 
             this.init();
         }
@@ -130,9 +126,14 @@ $(function() {
         AttendanceSlider.CLASS_TEST = /bp-\d/g;
 
         AttendanceSlider.prototype.init = function() {
-            var slider = this.slider;
+            var slider = this.slider   = this.container.find('.slider');
+            this.tooltip               = this.container.find('.slider-tooltip').remove();
+            this.displayedValue        = this.container.find('.slider-value');
 
             this.container.find('.slider-points').html(this.renderDots());
+            this.displayedValue.html(this.renderDisplayedValues());
+
+            this.displayedValuesList = this.displayedValue.children().first();
 
             noUiSlider.create(slider[0], {
                 start: this.values[0],
@@ -141,24 +142,16 @@ $(function() {
 
             slider.find('.noUi-handle-lower').append(this.tooltip);
 
-            slider[0].noUiSlider.on('change', this.onSliderChange.bind(this));
-            slider[0].noUiSlider.on('set', this.onSliderChange.bind(this));
+            slider[0].noUiSlider.on('slide', this.onSliderSlide.bind(this));
+            slider[0].noUiSlider.on('set', this.onSliderSlide.bind(this));
             slider[0].noUiSlider.set(this.initValue);
         };
 
-        AttendanceSlider.prototype.onSliderChange = function(strVal, handle, val, tap, positions) {
+        AttendanceSlider.prototype.onSliderSlide = function(strVal, handle, val, tap, positions) {
             var value = val[handle];
             var newBpIndex = this.getBpIndex(value);
-
-            if (value !== this.prevValue) {
-                this.changeDisplayedValue(value);
-                this.prevValue = value;
-            }
-
-            if (newBpIndex !== this.currentBpIndex) {
-                this.updateTooltip(newBpIndex);
-                this.currentBpIndex = newBpIndex;
-            }
+            this.updateTooltip(newBpIndex);
+            this.changeDisplayedValue(value);
         };
 
         AttendanceSlider.prototype.createRange = function(values) {
@@ -186,11 +179,28 @@ $(function() {
 
             return values.map(function(val, i) {
                 return (
-                    '<div class="slider-point" style="left: ' + (step * i) + '%">'
-                    + this.formatValueSting(val, values)
-                    + '</div>'
+                    '<div class="slider-point" style="left: ' + (step * i) + '%">' +
+                        this.formatValueSting(val, values) +
+                    '</div>'
                 );
-            }.bind(this)).join('');
+            }.bind(this)).join(' ');
+        };
+
+        AttendanceSlider.prototype.renderDisplayedValues = function(values) {
+            values = values || this.values;
+            var html = '<ul class="slider-values-list">';
+
+            html += values.map(function(val, i) {
+                return (
+                    '<li class="slider-value-list-item" data-value="' + val + '">' +
+                        '<span>' + this.formatValueSting(val) + '</span>' +
+                    '</li>'
+                );
+            }.bind(this)).join(' ');
+
+            html += '</ul>';
+
+            return html;
         };
 
         AttendanceSlider.prototype.formatValueSting = function(value) {
@@ -227,15 +237,24 @@ $(function() {
         };
 
         AttendanceSlider.prototype.changeDisplayedValue =  function(newValue) {
-            var className = (newValue > this.prevValue) ? 'is-increase' : 'is-decrease';
-            this.displayedValue.addClass(className);
-            setTimeout(function() {
-                this.displayedValueText.text(this.formatValueSting(newValue));
-                this.displayedValue.width(this.displayedValueText.width()).removeClass(className);
-            }.bind(this), 100);
+            if (newValue === this.currentValue) return;
+            var index = this.values.indexOf(newValue);
+
+            if (index > -1) {
+                this.displayedValuesList.css({
+                    transform: 'translateY(-' + this.displayedValue.height() * index + 'px)'
+                });
+                this.displayedValue.css({
+                    width: this.displayedValuesList.children().eq(index).children().first().width()
+                })
+            }
+
+            this.currentValue = newValue;
         };
 
         AttendanceSlider.prototype.updateTooltip = function(index) {
+            if (index === this.currentBpIndex) return;
+
             this.tooltip
                 .removeClass(function(i, className) {
                     var matched = className.match(AttendanceSlider.CLASS_TEST);
@@ -243,6 +262,8 @@ $(function() {
                     return '';
                 })
                 .addClass('bp-' + (index + 1));
+
+            this.currentBpIndex = index;
         };
 
         // create instances

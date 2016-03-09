@@ -858,13 +858,6 @@ a:not(:hover) {
   transform: translate3d(-50%, 0, 0) rotateX(0deg);
 }
 
-.noUi-active .slider-tooltip .icon {
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transform: translate3d(-50%, 0, 0) rotateX(90deg);
-  transform: translate3d(-50%, 0, 0) rotateX(90deg);
-}
-
 .noUi-handle .slider-tooltip {
   display: block;
 }
@@ -944,6 +937,64 @@ a:not(:hover) {
   height: 5px;
   border-radius: 50%;
   background: white;
+}
+
+.slider-value {
+  display: inline-block;
+  vertical-align: top;
+  min-width: 264px;
+  padding: 0 20px;
+  height: 74px;
+  margin: 40px auto 0;
+  box-sizing: content-box;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 59px;
+  line-height: 74px;
+  position: relative;
+  transition: width 0.2s ease;
+  overflow: hidden;
+}
+
+.slider-value:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  box-sizing: border-box;
+  border: 2px solid;
+  box-shadow: 0 0 20px 0 #529EF7 inset;
+}
+
+.slider-value.is-decrease .slider-value__inner {
+  -webkit-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.slider-value.is-increase .slider-value__inner {
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.slider-values-list {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 500px;
+  margin-left: -250px;
+  transition: all 0.4s ease;
+}
+
+.slider-value-list-item {
+  height: 74px;
 }
 
 .title {
@@ -2257,48 +2308,6 @@ a:not(:hover) {
   font-weight: normal;
   font-size: 32px;
   line-height: 1.0625;
-}
-
-.attendance__value {
-  display: inline-block;
-  vertical-align: top;
-  min-width: 264px;
-  padding: 0 20px;
-  height: 74px;
-  margin: 40px auto 0;
-  box-sizing: content-box;
-  border-radius: 5px;
-  text-align: center;
-  border: 2px solid;
-  font-size: 59px;
-  line-height: 74px;
-  position: relative;
-  transition: width 0.2s ease;
-  overflow: hidden;
-}
-
-.attendance__value.is-decrease .attendance__value-inner {
-  -webkit-transform: translateY(100%);
-  -ms-transform: translateY(100%);
-  transform: translateY(100%);
-  opacity: 0;
-}
-
-.attendance__value.is-increase .attendance__value-inner {
-  -webkit-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  transform: translateY(-100%);
-  opacity: 0;
-}
-
-.attendance__value-inner {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  left: 50%;
-  width: 500px;
-  margin-left: -250px;
-  transition: all 0.2s ease;
 }
 
 .attendance__footer {
